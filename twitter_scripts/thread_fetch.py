@@ -1,0 +1,82 @@
+from re import I
+import requests
+import json
+import secrets
+
+def auth():
+    return secrets.bearer_key
+
+def create_url():
+    query ="from:thejaskiranps"
+    # Tweet fields are adjustable.
+    # Options include:
+    # attachments, author_id, context_annotations,
+    # conversation_id, created_at, entities, geo, id,
+    # in_reply_to_user_id, lang, non_public_metrics, organic_metrics,
+    # possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets,
+    # source, text, and withheld
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
+    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
+        query, tweet_fields
+    )
+    return url
+
+def create_url_author(author):
+    query=f"from:{author}"
+    tweet_fields = "tweet.fields=text,id,"
+    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
+        query, tweet_fields
+    )
+    return url
+
+def create_url_convo(convo_id):
+    query =f"conversation_id:{convo_id}"
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,attachments,in_reply_to_user_id"
+    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
+        query, tweet_fields
+    )
+    return url
+
+def create_url_id(id):
+    query=f"from:{id}"
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
+    url = "https://api.twitter.com/2/tweets/{}".format(id)
+    return url
+
+
+def create_headers(bearer_token):
+    headers = {"Authorization": "Bearer {}".format(bearer_token)}
+    return headers
+
+def connect_to_endpoint(url, headers):
+    response = requests.request("GET", url, headers=headers)
+    print(response.status_code)
+    if response.status_code != 200:
+        raise Exception(response.status_code, response.text)
+    return response.json()
+
+def get_thread(conversation_id):
+    bearer_token = auth()
+    url = create_url_convo(conversation_id)
+    headers = create_headers(bearer_token)
+    json_response_convo = connect_to_endpoint(url, headers)
+    # thread_convo = json.dumps(json_response_convo)
+    thread_convo = json_response_convo
+    url = create_url_id(conversation_id)
+    json_response_id = connect_to_endpoint(url, headers)
+    thread_original_tweet=json_response_id
+    file = open("thread.txt","w")
+    for tweet in thread_convo['data']:
+        file.write(tweet['text'])
+        file.write('\n')
+    
+    file.write(thread_original_tweet['data']['text'])
+    file.write('\n')
+    file.close() 
+
+
+def main():
+    get_thread('1394230365825339392')
+
+if __name__ == "__main__":
+    main()

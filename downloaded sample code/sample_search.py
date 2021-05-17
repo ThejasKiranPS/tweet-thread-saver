@@ -11,7 +11,7 @@ def auth():
 
 
 def create_url():
-    query = "conversation_id:1394230365825339392"
+    query = "from:thejaskiranps" 
     # Tweet fields are adjustable.
     # Options include:
     # attachments, author_id, context_annotations,
@@ -46,7 +46,9 @@ def main():
     json_response = connect_to_endpoint(url, headers)
     print(json.dumps(json_response, indent=4, sort_keys=True))
     print('-------------------------------')
-    print(json_response["data"])
+    conversation_id = '1394230365825339392'
+    # print(json_response["data"]["text"])
+
 
 
 if __name__ == "__main__":

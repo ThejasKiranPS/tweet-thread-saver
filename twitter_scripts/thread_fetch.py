@@ -69,17 +69,17 @@ def get_thread(conversation_id):
     thread_original_tweet = connect_to_endpoint(url, headers)
 
     author_id = thread_original_tweet['data']['author_id']
-    print(auth)
+    # print(auth)
     url = create_url_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
-    
-    file= open("convo.txt","w")
+
+    file= open("./output/convo.txt","w")
     file.write(str(thread_convo))
     file.close()
-    file = open("original.txt","w")
+    file = open("./output/original.txt","w")
     file.write(str(thread_original_tweet))
     file.close()
-    file = open("thread.txt","w")
+    file = open("./output/thread.txt","w")
     file.write(thread_author['data']['name'])
     file.write('\t')
     file.write('@')

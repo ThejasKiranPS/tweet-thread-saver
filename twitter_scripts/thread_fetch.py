@@ -1,4 +1,3 @@
-from re import I
 import requests
 import json
 import secrets
@@ -39,7 +38,7 @@ def create_url_convo(convo_id):
 
 def create_url_id(id):
     query=f"from:{id}"
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id&user.fields"
     url = "https://api.twitter.com/2/tweets/{}".format(id)
     return url
 
@@ -59,24 +58,30 @@ def get_thread(conversation_id):
     bearer_token = auth()
     url = create_url_convo(conversation_id)
     headers = create_headers(bearer_token)
-    json_response_convo = connect_to_endpoint(url, headers)
+    thread_convo = connect_to_endpoint(url, headers)
     # thread_convo = json.dumps(json_response_convo)
-    thread_convo = json_response_convo
     url = create_url_id(conversation_id)
-    json_response_id = connect_to_endpoint(url, headers)
-    thread_original_tweet=json_response_id
+    thread_original_tweet = connect_to_endpoint(url, headers)
+    file= open("convo.txt","w")
+    file.write(str(thread_convo))
+    file.close()
+    file = open("original.txt","w")
+    file.write(str(thread_original_tweet))
+    file.close()
     file = open("thread.txt","w")
+    file.write(thread_original_tweet['data']['text'])
+    file.write('\n')
+    thread_convo['data'].reverse()
     for tweet in thread_convo['data']:
         file.write(tweet['text'])
         file.write('\n')
     
-    file.write(thread_original_tweet['data']['text'])
     file.write('\n')
     file.close() 
 
 
 def main():
-    get_thread('1394230365825339392')
+    get_thread('1394668086112833536')
 
 if __name__ == "__main__":
     main()

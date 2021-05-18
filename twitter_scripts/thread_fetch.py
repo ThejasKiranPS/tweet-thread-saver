@@ -1,50 +1,10 @@
 import requests
 import json
 import secrets
+import urls
 
 def auth():
     return secrets.bearer_key
-
-def create_url():
-    query ="from:thejaskiranps"
-    # Tweet fields are adjustable.
-    # Options include:
-    # attachments, author_id, context_annotations,
-    # conversation_id, created_at, entities, geo, id,
-    # in_reply_to_user_id, lang, non_public_metrics, organic_metrics,
-    # possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets,
-    # source, text, and withheld
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
-        query, tweet_fields
-    )
-    return url
-def create_url_username(author_id):
-    url=f"https://api.twitter.com/2/users/{author_id}"
-    return url
-
-def create_url_author(author):
-    query=f"from:{author}"
-    tweet_fields = "tweet.fields=text,id,"
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
-        query, tweet_fields
-    )
-    return url
-
-def create_url_convo(convo_id):
-    query =f"conversation_id:{convo_id}"
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,attachments,in_reply_to_user_id"
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
-        query, tweet_fields
-    )
-    return url
-
-def create_url_id(id):
-    query=f"from:{id}"
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
-    
-    url = "https://api.twitter.com/2/tweets/{}?tweet.fields=author_id".format(id)
-    return url
 
 
 def create_headers(bearer_token):
@@ -62,15 +22,15 @@ def get_thread(conversation_id):
     bearer_token = auth()
     headers = create_headers(bearer_token)
 
-    url = create_url_convo(conversation_id)
+    url = urls.create_convo(conversation_id)
     thread_convo = connect_to_endpoint(url, headers)
 
-    url = create_url_id(conversation_id)
+    url = urls.create_id(conversation_id)
     thread_original_tweet = connect_to_endpoint(url, headers)
 
     author_id = thread_original_tweet['data']['author_id']
     # print(auth)
-    url = create_url_username(author_id)
+    url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
     file= open("./output/convo.txt","w")

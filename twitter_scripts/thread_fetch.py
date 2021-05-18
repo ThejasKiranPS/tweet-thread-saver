@@ -19,6 +19,9 @@ def create_url():
         query, tweet_fields
     )
     return url
+def create_url_username(author_id):
+    url=f"https://api.twitter.com/2/users/{author_id}"
+    return url
 
 def create_url_author(author):
     query=f"from:{author}"
@@ -38,8 +41,9 @@ def create_url_convo(convo_id):
 
 def create_url_id(id):
     query=f"from:{id}"
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id&user.fields"
-    url = "https://api.twitter.com/2/tweets/{}".format(id)
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
+    
+    url = "https://api.twitter.com/2/tweets/{}?tweet.fields=author_id".format(id)
     return url
 
 
@@ -56,12 +60,19 @@ def connect_to_endpoint(url, headers):
 
 def get_thread(conversation_id):
     bearer_token = auth()
-    url = create_url_convo(conversation_id)
     headers = create_headers(bearer_token)
+
+    url = create_url_convo(conversation_id)
     thread_convo = connect_to_endpoint(url, headers)
-    # thread_convo = json.dumps(json_response_convo)
+
     url = create_url_id(conversation_id)
     thread_original_tweet = connect_to_endpoint(url, headers)
+
+    author_id = thread_original_tweet['data']['author_id']
+    print(auth)
+    url = create_url_username(author_id)
+    thread_author = connect_to_endpoint(url,headers)
+    
     file= open("convo.txt","w")
     file.write(str(thread_convo))
     file.close()
@@ -69,6 +80,11 @@ def get_thread(conversation_id):
     file.write(str(thread_original_tweet))
     file.close()
     file = open("thread.txt","w")
+    file.write(thread_author['data']['name'])
+    file.write('\t')
+    file.write('@')
+    file.write(thread_author['data']['username'])
+    file.write('\n')
     file.write(thread_original_tweet['data']['text'])
     file.write('\n')
     thread_convo['data'].reverse()

@@ -2,6 +2,7 @@ import requests
 import json
 import secrets
 import urls
+import Write
 
 def auth():
     return secrets.bearer_key
@@ -33,27 +34,7 @@ def get_thread(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    file= open("./output/convo.txt","w")
-    file.write(str(thread_convo))
-    file.close()
-    file = open("./output/original.txt","w")
-    file.write(str(thread_original_tweet))
-    file.close()
-    file = open("./output/thread.txt","w")
-    file.write(thread_author['data']['name'])
-    file.write('\t')
-    file.write('@')
-    file.write(thread_author['data']['username'])
-    file.write('\n')
-    file.write(thread_original_tweet['data']['text'])
-    file.write('\n')
-    thread_convo['data'].reverse()
-    for tweet in thread_convo['data']:
-        file.write(tweet['text'])
-        file.write('\n')
-    
-    file.write('\n')
-    file.close() 
+    Write.write(thread_convo, thread_original_tweet,thread_author)
 
 def get_thread_author_only(conversation_id):
     bearer_token = auth()
@@ -70,30 +51,7 @@ def get_thread_author_only(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    file= open("./output/convo.txt","w")
-    file.write(str(thread_convo))
-    file.close()
-    file = open("./output/original.txt","w")
-    file.write(str(thread_original_tweet))
-    file.close()
-    file = open("./output/thread.txt","w")
-    file.write(thread_author['data']['name'])
-    file.write('\t')
-    file.write('@')
-    file.write(thread_author['data']['username'])
-    file.write('\n')
-    file.write(thread_original_tweet['data']['text'])
-    file.write('\n')
-    thread_convo['data'].reverse()
-    for tweet in thread_convo['data']:
-        if tweet['author_id'] == author_id:
-            file.write(tweet['text'])
-            file.write('\n')
-        else:
-            break
-    
-    file.write('\n')
-    file.close() 
+    Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
 
 
 

@@ -140,9 +140,10 @@ footer {
   font-size: 1.25em;
 }
 .input-button {
+  font-size: 30px;
   height: 70px;
   max-height: 80px;
-  max-width: 350px;
+  max-width: 300px;
   justify-self: center;
   margin: auto;
 }

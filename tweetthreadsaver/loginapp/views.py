@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
+from .forms import RegisterForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -8,19 +8,31 @@ from django.contrib.auth.forms import AuthenticationForm
 def home(request):
     return render(request=request, template_name="homepage.html")
 
-def register_request(request):
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
+def register(response):
+	if response.method == "POST":
+		form = RegisterForm(response.POST)
 		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("main:homepage")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm
-	return render (request=request, template_name="register.html", context={"register_form":form , "page_name":"Register"})
+			form.save()
+		
+		return redirect("/home")
+	else:
+		form = RegisterForm()
+	return render(response,"register.html", {"form":form})
 
-def login_request(request):
+
+# def register(request):
+# 	if request.method == "POST":
+# 		form = NewUserForm(request.POST)
+# 		if form.is_valid():
+# 			user = form.save()
+# 			login(request, user)
+# 			messages.success(request, "Registration successful." )
+# 			return redirect("main:homepage")
+# 		messages.error(request, "Unsuccessful registration. Invalid information.")
+# 	form = NewUserForm
+# 	return render (request=request, template_name="register.html", context={"register_form":form , "page_name":"Register"})
+
+def login(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -39,7 +51,7 @@ def login_request(request):
 	return render(request=request, template_name="login.html", context={"login_form":form, "page_name":"Login"})
 
 
-def logout_request(request):
+def logout(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("main:home")

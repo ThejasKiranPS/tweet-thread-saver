@@ -1,157 +1,224 @@
-*{
-    list-style-type:none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: Roboto;
+* {
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: Roboto;
 }
 /* @font-face {
     font-family: Roboto;
     src: url("./fonts/Roboto/Roboto-Regular.ttf");
 } */
 .button {
-    background-color:white;
-    border: 2px solid #1da1f2;
-    height: 45px;
-    border-radius: 26px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color:#1da1f2;    
-    width: 100%;
+  background-color: white;
+  border: 2px solid #1da1f2;
+  height: 45px;
+  border-radius: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1da1f2;
+  width: 100%;
 }
 .button-active {
-    background-color: #1da1f2;
-    color: white;
+  background-color: #1da1f2;
+  color: white;
 }
 
-.button:hover{
-    background-color: #1da1f2;
-    color: white;  
+.button:hover {
+  background-color: #1da1f2;
+  color: white;
 }
-.button-active:hover{
-    background-color:white;
-    border: 2px solid #1da1f2;
-    color:#1da1f2;    
-    font-weight: 700;
-    /* text-decoration: underline; */
+.button-active:hover {
+  background-color: white;
+  border: 2px solid #1da1f2;
+  color: #1da1f2;
+  font-weight: 700;
+  /* text-decoration: underline; */
 }
 
-
-.nav-ul{
-    display:flex;
-    justify-content: flex-end;  
-    /* border: 1px solid black; */
-    padding:0px;
+.nav-ul {
+  display: flex;
+  justify-content: flex-end;
+  /* border: 1px solid black; */
+  padding: 0px;
 }
-.nav-li{
-    flex-basis: 110px; 
-    /* border: 1px solid black; */
-    margin:0 25px;
-
-
+.nav-li {
+  flex-basis: 110px;
+  /* border: 1px solid black; */
+  margin: 0 25px;
 }
 nav {
-
-    margin: 0px 7%;
-
+  margin: 0px 7%;
 }
-.nav-button{
-    /* margin: 0px 25px; */
+.nav-button {
+  /* margin: 0px 25px; */
 }
 
 .main-div {
-    /* border:1px solid black; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  /* border: 1px solid black; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-main{
-    /* border:1px solid red; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
+main {
+  /* border:1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
 }
-.main-button{
-    flex-basis: 350px;
-    height:80px;
-    border-radius: 100px;
-    margin: 10px;
-    font-size: 40px;
-    font-weight: 700;
+.main-button {
+  flex-basis: 350px;
+  height: 80px;
+  border-radius: 100px;
+  margin: 10px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+.main-button a {
+  color: inherit;
+  width: 100%;
+  text-align: center;
 }
 .main-btn-container {
-    display: flex;
+  display: flex;
 
-    width: 100%;
-    justify-content: center;
+  width: 100%;
+  justify-content: center;
 }
-.heading{
-    color:#1da1f2;
-    font-weight: 500;
-    font-size: 50px;
+.heading {
+  color: #1da1f2;
+  font-weight: 500;
+  font-size: 50px;
 }
-.alt-link a{
-    color:#1da1f2;
-    font-weight: 500;
+.alt-link a {
+  color: #1da1f2;
+  font-weight: 500;
 }
-.alt-text{
-    font-weight: 200;
+.alt-text {
+  font-weight: 200;
 }
 
-footer{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.footer-container{
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid black; */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
 }
 .footer-img {
-    height: auto;
-    width: 50px;
+  height: auto;
+  width: 50px;
 }
 .footer-icon {
-    align-self: center;
+  align-self: center;
 }
 .footer-text {
-    color:black;
-    font-family: monospace;
+  color: black;
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 14px;
+}
+.footer-text:hover {
+  text-decoration: underline;
+}
+
+.input-field {
+  height: 60px;
+  width: 80%;
+  left: 514px;
+  top: 291px;
+  border-radius: 10px;
+  background: #f7fdff;
+  margin: 0px 0 5px 0;
+  font-size: 1.25em;
+}
+.input-button {
+  height: 70px;
+  max-height: 80px;
+  max-width: 350px;
+  justify-self: center;
+  margin: auto;
+}
+
+::placeholder {
+  font-size: 1em;
+  font-family: Coda;
+}
+
+input:focus {
+  border-radius: 10px;
+  border-color: #1da1f2;
+  outline: none;
+}
+/* .main-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.form-elements {
+  display: flex;
+  justify-content: center;
+  /* min-width: 50%; */
+}
+.main-form {
+  width: 450px;
+}
+
+@media only screen and (max-width: 550px) {
+  .nav-li {
+    margin: 0px 10px;
+    font-size: 0.9em;
+    height: 35px;
+  }
+  .button {
+    height: 40px;
+  }
+  .heading {
+    font-size: 2em;
     font-weight: bolder;
-    font-size: 14px;
+  }
+  .main-button {
+    font-size: 2em;
+  }
+  .nav-ul {
+    justify-content: space-between;
+  }
+  nav {
+    margin: 0px;
+  }
+  .main-button {
+    height: 60px;
+  }
+  .main-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-elements {
+    /* width: 0px;
+    flex-basis: 400px;
+    flex-grow: 1; */
+    /* border: 1px solid blue; */
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;
+  }
+  .input-field {
+    width: 100%;
+    max-width: 350px;
+  }
 }
-.footer-text:hover{
-    text-decoration: underline;
-}
-
-
-@media only screen and (max-width: 600px) {
-	.nav-li{
-		margin: 0px 10px;
-        font-size: .8em;
-        height: 35px;
-	}
-    .button{
-        height:35px;
-    }
-    .heading {
-        font-size: 2em;
-        font-weight: bolder;
-    }
-    .main-button{
-        font-size: 2em;
-    }
-    .nav-ul{
-        justify-content: space-between;
-    }
-    nav {
-        margin:0px;
-    }
-    .main-button{
-        height:60px;
-    }
-}
-

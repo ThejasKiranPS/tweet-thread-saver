@@ -11,13 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coda&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav>
         <ul class="nav-ul">
           <li class="nav-li">
-            <a href="#">
+            <a href="./index.html">
               <div class="button nav-button button-active">Home</div>
             </a>
           </li>
@@ -36,15 +41,28 @@
     </header>
     <main>
       <div class="main-div">
-        <h1 class="heading">Twitter Thread Saver</h1>
-        <div class="main-btn-container">
-          <div class="button button-active main-button">
-            <a href="./signUp.html">Sign up</a>
+        <form class="main-form">
+          <div class="form-elements">
+            <input type="text" placeholder=" email" class="input-field" />
           </div>
-        </div>
+          <div class="form-elements">
+            <input
+              type="password"
+              placeholder=" password"
+              class="input-field"
+            />
+          </div>
+
+          <button
+            class="button button-active main-button input-button"
+            type="submit"
+          >
+            Log in
+          </button>
+        </form>
         <div class="alt-text">
           Already have an account?
-          <span class="alt-link"><a href="./login.html">Log in</a></span>
+          <span class="alt-link"><a href="./signUp.html">Sign up</a></span>
         </div>
       </div>
     </main>

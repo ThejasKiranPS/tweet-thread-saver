@@ -56,8 +56,8 @@ def get_thread_author_only(conversation_id):
 
 
 
-def main():
-    twitterUserName= 'thejaskiranps'
+#pass twitterUserName in main
+def main(twitterUserName= 'thejaskiranps'):
     conversation_id = fetch_mention.last_mentioned_id(twitterUserName)
     get_thread_author_only(conversation_id)
 

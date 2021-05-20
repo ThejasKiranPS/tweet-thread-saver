@@ -39,6 +39,7 @@ def get_thread_author_only(conversation_id):
 
 def last_mentioned_id(authorUserName):
     #CHANGE THE MENTION ID HERE
+    #returns conversation_id
     mId='amalpaultech'
     bearer_token = auth()
     headers = create_headers(bearer_token)

@@ -1,4 +1,4 @@
-
+mId='@amalpaultech'
 def write_author_only(thread_convo, thread_original_tweet, thread_author):
     file= open("./output/convo.txt","w")
     file.write(str(thread_convo))
@@ -19,6 +19,8 @@ def write_author_only(thread_convo, thread_original_tweet, thread_author):
     thread_convo['data'].reverse()
     for tweet in thread_convo['data']:
         if tweet['author_id'] == author_id:
+            if mId in tweet['text']:
+                continue
             file.write(tweet['text'])
             file.write('\n')
         else:

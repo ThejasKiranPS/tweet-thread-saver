@@ -1,0 +1,110 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Thread Saver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class=".header">
+      <div class="header-container">
+        <img class="logo" src="{% static 'img/twitter.svg' %}" alt="logo of twitter">
+        <span>
+          <h1 class="heading">
+            Twitter Thread Saver</h1>
+        </span>
+
+      </div>
+    </header>
+    <main class="main">
+      <nav class="nav main-left">
+        <ul class="nav-ul">
+          <li class="nav-li">
+            <a href="/" class="nav-a">
+              <div class="button nav-button">Home</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/about" class="nav-a">
+              <div class="button nav-button">About</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/dashboard" class="nav-a">
+          </li>
+          <div class="button nav-button button-active">Dashboard</div>
+          </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-content main-middle">
+        <div class="main-element-container">
+          <div class="main-element">Hey there tweet one
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, eligendi accusantium! Eveniet sapiente,
+            placeat aut cumque, provident tempora aliquam nobis ducimus ipsa culpa tenetur velit rem nisi quas iure
+            neque molestiae commodi adipisci at ipsam facere facilis perspiciatis! Recusandae temporibus, dolore aperiam
+            iure tenetur ipsa pariatur? Id perspiciatis quisquam, fugiat corrupti placeat dicta, autem rem nobis modi
+            incidunt eum dolorum.
+          </div>
+          <div class="main-element">Tweet 2 HiLo</div>
+          <div class="main-element">Nice metting you Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+            deleniti.
+          </div>
+        </div>
+      </div>
+      <div class="main-right">
+        <div class="nav main-right">
+          <ul class="nav-ul">
+            <li class="nav-li">
+              <a href="#" class="nav-a">
+                <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
+                  <img class="button-icon" id="i1" src="{% static 'img/refreshing-blue.png' %}">
+                  <p class="no-display" id='t1'>Refresh</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#" class="nav-a">
+                <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
+                  <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
+                  <p class="no-display" id='t2'>Add</p>
+                </div>
+
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#" class="nav-a">
+                <div class="button nav-button" onmouseover="over('3')" onmouseout="undo('3')">
+                  <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
+                  <p class="no-display" id='t3'>Download</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <a class="footer-icon" href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <img class="footer-img" src="{% static '/img/github.png' %}" alt="logo of github" />
+        </a>
+        <a href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <p class="footer-text">git checkout main</p>
+        </a>
+      </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+
+  </html>
+</DOCTYPE>

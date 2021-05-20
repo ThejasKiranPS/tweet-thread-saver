@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+    <main>
+      <div class="main-div">
+        <form class="main-form" method="POST" >
+          {% csrf_token %}
+          <div class="form-elements">
+            <input
+              type="text"
+              placeholder=" @twitterUsername"
+              class="input-field"
+              name="username" 
+              maxlength="150" 
+              autofocus="" 
+              required="" 
+            />
+          </div>
+          <div class="form-elements">
+            <input
+              name="email" 
+              type="email"
+              required="" 
+              placeholder=" email" 
+              class="input-field"
+            />
+
+          </div>
+          <div class="form-elements">
+            <input
+              name="password1"
+              type="password"
+              placeholder=" password"
+              class="input-field"
+              autocomplete="new-password"
+              required=""
+            />
+          </div>
+          <div class="form-elements">
+            <input
+              name="password2"
+              type="password"
+              autocomplete="new-password" 
+              required=""   
+              placeholder=" repeat password"
+              class="input-field"
+            />
+          </div>
+          <button
+            class="button button-active main-button input-button"
+            type="submit"
+          >
+            Sign up
+          </button>
+        </form>
+        <div class="alt-text">
+          Already have an account?
+          <span class="alt-link"><a href="/login">Log in</a></span>
+        </div>
+      </div>
+    </main>
+
+{% endblock %}

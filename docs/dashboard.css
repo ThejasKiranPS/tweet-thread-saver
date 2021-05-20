@@ -70,6 +70,7 @@ body{
 .nav-button {
   margin: 25px 0px;
   width:inherit;
+  width:100px;
 
 }
 
@@ -192,18 +193,26 @@ input:focus {
 }
 
 @media only screen and (max-width: 550px) {
-  .nav-li {
+  
+  .main-left{
+    display:none;
+  }
+  /* .nav-li {
     margin: 0px 10px;
     font-size: 0.9em;
     height: 35px;
-  }
-  .button {
+  } */
+  /* .button {
     height: 40px;
   }
-  .heading {
-    font-size: 2em;
+ */ .heading {
+    font-size: 1.5em;
     font-weight: bolder;
   }
+  .header-container{
+    justify-content: flex-start;
+  }
+  /*
   .main-button {
     font-size: 2em;
   }
@@ -225,10 +234,7 @@ input:focus {
     align-items: center;
   }
   .form-elements {
-    /* width: 0px;
-    flex-basis: 400px;
-    flex-grow: 1; */
-    /* border: 1px solid blue; */
+
     width: 95%;
     display: flex;
     justify-content: center;
@@ -237,10 +243,10 @@ input:focus {
   .input-field {
     width: 100%;
     max-width: 350px;
-  }
+  } */
 }
 .header {
-  height: 8vh;
+  height: 10vh;
   display:flex;
   justify-content: start;
 }
@@ -282,4 +288,15 @@ input:focus {
   max-width:600px;
   /* border: 1px solid */
   
+}
+.button-icon {
+  height: auto;
+  width:20px;
+  color: #1da1f2;
+}
+.button-icon:hover {
+
+}
+.no-display{
+  display:none;
 }

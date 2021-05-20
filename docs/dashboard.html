@@ -14,7 +14,7 @@
   <body>
     <header class=".header">
       <div class="header-container">
-        <img class="logo" src="./github.png" alt="logo of twitter">
+        <img class="logo" src="./img/twitter .svg" alt="logo of twitter">
         <span>
           <h1 class="heading">
             Twitter Thread Saver</h1>
@@ -26,8 +26,8 @@
       <nav class="nav main-left">
         <ul class="nav-ul">
           <li class="nav-li">
-            <a href="#" class="nav-a">
-              <div class="button nav-button button-active">Home</div>
+            <a href="./index.html" class="nav-a">
+              <div class="button nav-button">Home</div>
             </a>
           </li>
           <li class="nav-li">
@@ -38,7 +38,7 @@
           <li class="nav-li">
             <a href="#" class="nav-a">
           </li>
-          <div class="button nav-button">Dashboard</div>
+          <div class="button nav-button button-active">Dashboard</div>
           </a>
           </li>
         </ul>
@@ -52,8 +52,9 @@
             iure tenetur ipsa pariatur? Id perspiciatis quisquam, fugiat corrupti placeat dicta, autem rem nobis modi
             incidunt eum dolorum.
           </div>
-          <div class="main-element">Tweet 2 Hi</div>
-          <div class="main-element">Nice metting you t3
+          <div class="main-element">Tweet 2 HiLo</div>
+          <div class="main-element">Nice metting you Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+            deleniti.
           </div>
         </div>
       </div>
@@ -62,22 +63,32 @@
           <ul class="nav-ul">
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button button-active">Home</div>
+                <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
+                  <img class="button-icon" id="i1" src="img/refreshing-blue.png">
+                  <p class="no-display" id='t1'>Refresh</p>
+                </div>
               </a>
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button">About</div>
+                <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
+                  <img class="button-icon" id="i2" src="img/add-blue.png">
+                  <p class="no-display" id='t2'>Add</p>
+                </div>
+
               </a>
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-            </li>
-            <div class="button nav-button">Dashboard</div>
-            </a>
+                <div class="button nav-button" onmouseover="over('3')" onmouseout="undo('3')">
+                  <img class="button-icon" id="i3" src="img/direct-download-blue.png">
+                  <p class="no-display" id='t3'>Download</p>
+                </div>
+              </a>
             </li>
           </ul>
         </div>
+      </div>
       </div>
 
     </main>
@@ -91,6 +102,7 @@
         </a>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 
   </html>

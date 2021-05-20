@@ -1,11 +1,13 @@
 from django import contrib, urls
 from django.contrib import auth
 from django.urls import include, path
-from . import views
+from . import views as loginviews
+from dashboard import views as dashviews
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("home", views.home, name="home"),
-    path("register", views.register, name="register"),
+    path("", loginviews.home, name="home"),
+    path("home/", loginviews.home, name="home"),
+    path("register/", loginviews.register, name="register"),
+    path("refresh/",dashviews.refresh, name="thread function"),
     path("", include("django.contrib.auth.urls")),
 ]

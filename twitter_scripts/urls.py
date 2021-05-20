@@ -18,7 +18,7 @@ def create_username(author_id):
 
 def create_author(author):
     query=f"from:{author}"
-    tweet_fields = "tweet.fields=text,id,"
+    tweet_fields = "tweet.fields=text,id,conversation_id"
     url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
         query, tweet_fields
     )

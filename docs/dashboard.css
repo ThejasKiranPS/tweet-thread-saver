@@ -286,7 +286,8 @@ input:focus {
   padding:10px;
   margin:10px;
   max-width:600px;
-  /* border: 1px solid */
+  font-size: 20px;
+  border: 1px solid transparent;
   
 }
 .button-icon {
@@ -299,4 +300,17 @@ input:focus {
 }
 .no-display{
   display:none;
+}
+.selected {
+  background-color: #b9e4ff;
+  border: 1px solid #1da1f2;
+}
+
+@media only screen and (min-width: 1000px) {
+  .main-content {
+    flex:2;
+  }
+  body{
+    padding: 0 50px;
+  }
 }

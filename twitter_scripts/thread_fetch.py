@@ -59,7 +59,7 @@ def get_thread_author_only(conversation_id):
     thread_author = connect_to_endpoint(url,headers)
 
     # Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
-    print(f"{thread_original_tweet}\n {thread_convo}")
+    #print(f"{thread_original_tweet}\n {thread_convo}")
     return process(thread_convo, thread_original_tweet, thread_author)
     
 
@@ -67,14 +67,13 @@ def process(thread_convo, thread_original_tweet, thread_author):
     userData={}
     conversation_id= thread_original_tweet['data']['id']
  
-    tweet=''
-    tweet+=thread_original_tweet['data']['text']
-    #thread_convo['data'].reverse()
-    #for t in thread_convo['data']:
-    #    if mId in t['text']:
-    #        break
-    #    tweet+= '\n'
-    #    tweet+= t['text'] 
+    tweet=[]
+    tweet.append(thread_original_tweet['data']['text'])
+    thread_convo['data'].reverse()
+    i=0
+    for t in thread_convo['data']:
+        if mId in t['text']:
+            break
     
     userData={
             'thread_author':thread_author['data']['name'],
@@ -97,7 +96,7 @@ def get_threads(twitterUserName):
 #pass twitterUserName in main
 def main(twitterUserName= 'thejaskiranps'):
     data = get_threads(twitterUserName)
-    print(data)
+    # print(data)
     return data
     #get_thread_author_only(conversation_ids)
 

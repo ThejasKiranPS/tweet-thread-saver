@@ -1,3 +1,7 @@
+:root {
+  --bg:black;
+
+}
 * {
   list-style-type: none;
   text-decoration: none;
@@ -7,13 +11,14 @@
 }
 body{
   margin:0;
+  background-color: var(--bg);
 }
 /* @font-face {
     font-family: Roboto;
     src: url("./fonts/Roboto/Roboto-Regular.ttf");
 } */
 .button {
-  background-color: white;
+  background-color: var(--bg);
   border: 2px solid #1da1f2;
   height: 45px;
   border-radius: 26px;
@@ -331,4 +336,45 @@ input:focus {
   display: inline-block;
   margin:0;
   font-size: 15px;
+}
+
+.sticky-left{
+  position:fixed;
+  top:30%;
+  left:10%;
+}
+.sticky-right{
+  position:fixed;
+  top:30%;
+  right:10%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .sticky-left{
+    position:fixed;
+    top:30%;
+    left:3%;
+  }
+  .sticky-right{
+    position:fixed;
+    top:30%;
+    right:3%;
+  }
+}
+@media only screen and (max-width: 865px) {
+ .main-left{
+   display:none;
+ }
+}
+@media only screen and (min-width: 1500px) {
+  .sticky-left{
+    position:fixed;
+    top:30%;
+    left:18%;
+  }
+  .sticky-right{
+    position:fixed;
+    top:30%;
+    right:18%;
+  }
 }

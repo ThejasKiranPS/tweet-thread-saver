@@ -1,13 +1,13 @@
 import requests
 import json
-from twitter_scripts import secrets
-from twitter_scripts import urls
-from twitter_scripts import Write
-from twitter_scripts import fetch_mention
-# import secrets
-# import urls
-# import Write
-# import fetch_mention
+#from twitter_scripts import secrets
+#from twitter_scripts import urls
+#from twitter_scripts import Write
+#from twitter_scripts import fetch_mention
+import secrets
+import urls
+import Write
+import fetch_mention
 
 mId='amalpaultech'
 
@@ -98,6 +98,11 @@ def get_threads(twitterUserName):
 def main(twitterUserName= 'thejaskiranps'):
     get_threads(twitterUserName)
     #get_thread_author_only(conversation_ids)
+
+
+def addByUrl(url):
+    urlSplit=url.split('status/') 
+    return [get_thread_author_only(urlSplit[1])]
 
 if __name__ == "__main__":
     main()

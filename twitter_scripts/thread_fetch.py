@@ -74,6 +74,7 @@ def process(thread_convo, thread_original_tweet, thread_author):
     for t in thread_convo['data']:
         if mId in t['text']:
             break
+        tweet.append(t['text'])
     
     userData={
             'thread_author':thread_author['data']['name'],
@@ -96,7 +97,7 @@ def get_threads(twitterUserName):
 #pass twitterUserName in main
 def main(twitterUserName= 'thejaskiranps'):
     data = get_threads(twitterUserName)
-    # print(data)
+    #print(data)
     return data
     #get_thread_author_only(conversation_ids)
 

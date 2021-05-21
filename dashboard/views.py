@@ -1,9 +1,15 @@
 from django.shortcuts import redirect, render
 from twitter_scripts import thread_fetch
+from .models import Thread
 
 # Create your views here.
 def dashboard(request):
-    return render(request=request, template_name="dashboard.html")
+    
+    threads = Thread.objects.all()
+    # for thread in threads:
+    #     print(thread.thread_tweets)
+
+    return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 
 def refresh(request):

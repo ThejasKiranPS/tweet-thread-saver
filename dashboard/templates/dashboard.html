@@ -46,17 +46,9 @@
       </nav>
       <div class="main-content main-middle">
         <div class="main-element-container">
-          <div class="main-element">Hey there tweet one
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, eligendi accusantium! Eveniet sapiente,
-            placeat aut cumque, provident tempora aliquam nobis ducimus ipsa culpa tenetur velit rem nisi quas iure
-            neque molestiae commodi adipisci at ipsam facere facilis perspiciatis! Recusandae temporibus, dolore aperiam
-            iure tenetur ipsa pariatur? Id perspiciatis quisquam, fugiat corrupti placeat dicta, autem rem nobis modi
-            incidunt eum dolorum.
-          </div>
-          <div class="main-element">Tweet 2 HiLo</div>
-          <div class="main-element">Nice metting you Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            deleniti.
-          </div>
+        {% for thread in threads %}
+          <div class="main-element">{{ thread.thread_tweets }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="main-right">

@@ -1,6 +1,5 @@
 *.pyc
 **secrets.py
-**.txt
 **.vscode
 **.swp
 **.swo

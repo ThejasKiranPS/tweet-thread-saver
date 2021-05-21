@@ -1,9 +1,9 @@
 import requests
 import json
 
-#from twitter_scripts import secrets
-#from twitter_scripts import urls
-#from twitter_scripts import Write
+# from twitter_scripts import secrets
+# from twitter_scripts import urls
+# from twitter_scripts import Write
 
 import secrets
 import urls
@@ -19,7 +19,7 @@ def create_headers(bearer_token):
 
 def connect_to_endpoint(url, headers):
     response = requests.request("GET", url, headers=headers)
-    print(response.status_code)
+    # print(response.status_code)
     if response.status_code != 200:
         raise Exception(response.status_code, response.text)
     return response.json()
@@ -33,8 +33,6 @@ def get_thread_author_only(conversation_id):
 
     url = urls.create_id(conversation_id)
     thread_original_tweet = connect_to_endpoint(url, headers)
-    test(url)
-
     author_id = thread_original_tweet['data']['author_id']
     print(author_id)
     url = urls.create_username(author_id)
@@ -53,9 +51,9 @@ def last_mentioned_ids(authorUserName):
 
     url = urls.create_author(authorUserName)
     tweets = connect_to_endpoint(url,headers)
-    file= open('./output/authTweets.txt','w')
-    file.write(str(tweets))
-    file.close()
+    # file= open('./output/authTweets.txt','w')
+    # file.write(str(tweets))
+    # file.close()
     conversation_ids=[]
     i=0 
     for tweet in tweets['data']:

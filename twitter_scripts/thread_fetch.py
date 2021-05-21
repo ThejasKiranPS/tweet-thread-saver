@@ -1,9 +1,9 @@
 import requests
 import json
-import secrets
-import urls
-import Write
-import fetch_mention
+from twitter_scripts import secrets
+from twitter_scripts import urls
+from twitter_scripts import Write
+from twitter_scripts import fetch_mention
 
 def auth():
     return secrets.bearer_key
@@ -52,8 +52,8 @@ def get_thread_author_only(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
-
+    # Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
+    print(f"{thread_original_tweet['text']}\n {thread_convo}")
 
 
 #pass twitterUserName in main

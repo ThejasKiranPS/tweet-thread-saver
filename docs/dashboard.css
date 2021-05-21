@@ -282,12 +282,13 @@ input:focus {
   border-radius: 16px;
   min-height:50px;
   display:flex;
-  align-items: center;
+  justify-content: space-between;
   padding:10px;
   margin:10px;
   max-width:600px;
   font-size: 20px;
   border: 1px solid transparent;
+  flex-direction: column;
   
 }
 .button-icon {
@@ -313,4 +314,21 @@ input:focus {
   body{
     padding: 0 50px;
   }
+}
+.tName{
+  opacity: .7;
+  display:inline-block;
+  margin:0 0 10px 0;
+  font-weight: 500;
+  font-size: 17px;
+  font-family: Roboto;
+  color: #019eff;
+  /* color:#FF6201; */
+  
+}
+.tUserName{
+  opacity:.5;
+  display: inline-block;
+  margin:0;
+  font-size: 15px;
 }

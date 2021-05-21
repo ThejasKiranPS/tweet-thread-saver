@@ -97,7 +97,7 @@ def get_threads(twitterUserName):
 #pass twitterUserName in main
 def main(twitterUserName= 'thejaskiranps'):
     data = get_threads(twitterUserName)
-    #print(data)
+    print(data)
     return data
     #get_thread_author_only(conversation_ids)
 

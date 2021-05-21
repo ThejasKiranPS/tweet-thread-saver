@@ -78,6 +78,10 @@
           </div>
           <!-- <div class="main-element-container">
           {% for thread in threads %}
+          <div onclick="event.stopPropagation()">
+              <p class="tName">{{ thread.thread_author }}</p>
+              <p class="tUserName">{{ thread.thread_author_username }}</p>
+            </div>
           <div class="main-element">{{ thread.thread_tweets }}</div>
           {% endfor %}
         </div> -->

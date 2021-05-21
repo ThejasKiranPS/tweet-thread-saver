@@ -6,9 +6,6 @@ from .models import Thread
 def dashboard(request):
     
     threads = Thread.objects.all()
-    # for thread in threads:
-    #     print(thread.thread_tweets)
-
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 

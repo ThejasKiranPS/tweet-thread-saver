@@ -1,12 +1,11 @@
+from loginapp import urls
 from django.http.response import HttpResponse
 from django.shortcuts import  render, redirect
 from .forms import RegisterForm
-from django.contrib.auth import login, authenticate
-from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
 def home(request):
-    return render(request=request, template_name="homepage.html")
+	return render(request=request, template_name="homepage.html")
 
 def register(response):
 	if response.method == "POST":

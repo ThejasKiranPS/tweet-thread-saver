@@ -1,8 +1,13 @@
 import requests
 import json
-from twitter_scripts import secrets
-from twitter_scripts import urls
-from twitter_scripts import Write
+
+#from twitter_scripts import secrets
+#from twitter_scripts import urls
+#from twitter_scripts import Write
+
+import secrets
+import urls
+import Write
 
 def auth():
     return secrets.bearer_key
@@ -37,32 +42,34 @@ def get_thread_author_only(conversation_id):
     
     Write.write_author_only(thread_convo,thread_original_tweet,thread_author) 
 
-def last_mentioned_id(authorUserName):
+def last_mentioned_ids(authorUserName):
     #CHANGE THE MENTION ID HERE
-    #returns conversation_id
     mId='amalpaultech'
+
+    #CHANGE NO OF TWEETS TO FETCH HERE
+    limit=3
     bearer_token = auth()
     headers = create_headers(bearer_token)
 
     url = urls.create_author(authorUserName)
     tweets = connect_to_endpoint(url,headers)
-  #  file= open('./output/authTweets.txt','w')
-  #  file.write(str(tweets))
-  #  file.close()
-      
+    file= open('./output/authTweets.txt','w')
+    file.write(str(tweets))
+    file.close()
+    conversation_ids=[]
+    i=0 
     for tweet in tweets['data']:
+        if i>=limit:
+            break
         if mId in tweet['text']:
-            return tweet['conversation_id']
-    return False
+            i+=1
+            conversation_ids.append(tweet['conversation_id'])
+    return conversation_ids
 
 
-    
-def test(string):
-    print(string)
-
-def main():
-    conversation_id= last_mentioned_id('thejaskiranps')
-    get_thread_author_only(conversation_id)
-
-if __name__ == "__main__":
-    main()
+#def main():
+#    conversation_id= last_mentioned_id('thejaskiranps')
+#    get_thread_author_only(conversation_id)
+#
+#if __name__ == "__main__":
+#    main()

@@ -1,13 +1,13 @@
 import requests
 import json
-# from twitter_scripts import secrets
-# from twitter_scripts import urls
-# from twitter_scripts import Write
-# from twitter_scripts import fetch_mention
-import secrets
-import urls
-import Write
-import fetch_mention
+from twitter_scripts import secrets
+from twitter_scripts import urls
+from twitter_scripts import Write
+from twitter_scripts import fetch_mention
+# import secrets
+# import urls
+# import Write
+# import fetch_mention
 
 mId='amalpaultech'
 
@@ -41,7 +41,7 @@ def get_thread(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    Write.write(thread_convo, thread_original_tweet,thread_author)
+    # Write.write(thread_convo, thread_original_tweet,thread_author)
 
 def get_thread_author_only(conversation_id):
     bearer_token = auth()
@@ -97,7 +97,7 @@ def get_threads(twitterUserName):
 #pass twitterUserName in main
 def main(twitterUserName= 'thejaskiranps'):
     data = get_threads(twitterUserName)
-    print(data)
+    # print(data)
     return data
     #get_thread_author_only(conversation_ids)
 

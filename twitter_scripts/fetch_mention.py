@@ -1,13 +1,13 @@
 import requests
 import json
 
-# from twitter_scripts import secrets
-# from twitter_scripts import urls
-# from twitter_scripts import Write
+from twitter_scripts import secrets
+from twitter_scripts import urls
+from twitter_scripts import Write
 
-import secrets
-import urls
-import Write
+# import secrets
+# import urls
+# import Write
 
 def auth():
     return secrets.bearer_key

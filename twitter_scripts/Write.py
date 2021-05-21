@@ -51,6 +51,18 @@ def write(thread_convo, thread_original_tweet, thread_author):
         file.write(tweet['text'])
         file.write('\n')
 
+#useless wrong function below (dont delete)
+def get(thread_convo, thread_original_tweet, thread_author):
+    userData=[]
+
+    for i in range(3):
+        userData[i]={
+                'thread_author':thread_author['data']['name'],
+                'thread_tweets':thread_tweets,
+                'conversation_id': conversation_id,
+                }
+
+
     file.write('\n')
     file.close()
 

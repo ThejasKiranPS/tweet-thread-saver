@@ -8,6 +8,7 @@
     <title>Twitter Thread Saver</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <!-- <link rel="stylesheet" href="./dashboard.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   </head>
@@ -16,6 +17,7 @@
     <header class=".header">
       <div class="header-container">
         <img class="logo" src="{% static 'img/twitter.svg' %}" alt="logo of twitter">
+        <!-- <img class="logo" src="img/twitter.svg" alt="logo of twitter"> -->
         <span>
           <h1 class="heading">
             Twitter Thread Saver</h1>
@@ -57,51 +59,56 @@
           <div class="main-element">Nice metting you Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
             deleniti.
           </div> -->
-        <div class="main-element-container">
-        {% for thread in threads %}
+          <div class="main-element-container">
+          {% for thread in threads %}
           <div class="main-element">{{ thread.thread_tweets }}</div>
           {% endfor %}
         </div>
-      </div>
-      <div class="main-right">
-        <div class="nav main-right">
-          <ul class="nav-ul">
-            <li class="nav-li">
-              <a href="#" class="nav-a">
-                <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
-                  <img class="button-icon" id="i1" src="{% static 'img/refreshing-blue.png' %}">
-                  <p class="no-display" id='t1'>Refresh</p>
-                </div>
-              </a>
-            </li>
-            <li class="nav-li">
-              <a href="#" class="nav-a">
-                <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
-                  <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
-                  <p class="no-display" id='t2'>Add</p>
-                </div>
-
-              </a>
-            </li>
-            <li class="nav-li">
-              <a href="#" class="nav-a">
-                <div class="button nav-button" id='b3' onmouseover="over('3')" onmouseout="undo('3')">
-                  <!-- <img class="button-icon" id="i3" src="img/direct-download-blue.png"> -->
-                  <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
-                  <p class="no-display" id='t3'>Download</p>
-                </div>
-              </a>
-            </li>
-          </ul>
         </div>
-      </div>
+        <div class="main-right">
+          <div class="nav main-right">
+            <ul class="nav-ul">
+              <li class="nav-li">
+                <a href="#" class="nav-a">
+                  <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
+                    <!-- <img class="button-icon" id="i1" src="img/refreshing-blue.png"> -->
+                    <img class="button-icon" id="i1" src="{% static 'img/refreshing-blue.png' %}">
+
+                    <p class="no-display" id='t1'>Refresh</p>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-li">
+                <a href="#" class="nav-a">
+                  <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
+                    <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
+                    <!-- <img class="button-icon" id="i2" src="img/add-blue.png"> -->
+                    <p class="no-display" id='t2'>Add</p>
+                  </div>
+
+                </a>
+              </li>
+              <li class="nav-li">
+                <a href="#" class="nav-a">
+                  <div class="button nav-button" id='b3' onmouseover="over('3')" onmouseout="undo('3')">
+                    <!-- <img class="button-icon" id="i3" src="./img/direct-download-blue.png"> -->
+                    <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
+                    <p class="no-display" id='t3'>Download</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
     </main>
     <footer class="footer">
       <div class="footer-container">
         <a class="footer-icon" href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <!-- <img class="footer-img" src="img/github.png" alt="logo of github" /> -->
           <img class="footer-img" src="{% static '/img/github.png' %}" alt="logo of github" />
+
         </a>
         <a href="https://github.com/ThejasKiranPS/tweet-thread-saver">
           <p class="footer-text">git checkout main</p>

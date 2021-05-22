@@ -6,16 +6,12 @@
   text-decoration: none;
   box-sizing: border-box;
   font-family: Roboto;
-  /* border:1px solid black;   */
 }
 body {
   margin: 0;
   background-color: var(--bg);
 }
-/* @font-face {
-    font-family: Roboto;
-    src: url("./fonts/Roboto/Roboto-Regular.ttf");
-} */
+
 .button {
   background-color: var(--bg);
   border: 2px solid #1da1f2;
@@ -41,7 +37,6 @@ body {
   border: 2px solid #1da1f2;
   color: #1da1f2;
   font-weight: 700;
-  /* text-decoration: underline; */
 }
 
 .nav-ul {
@@ -53,8 +48,6 @@ body {
   flex-basis: 100px;
 }
 .nav-li {
-  /* border: 1px solid black; */
-  /* margin: 0 15px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,7 +122,6 @@ body {
 .footer-container {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
 }
 .footer-img {
   height: auto;
@@ -177,18 +169,10 @@ input:focus {
   border-color: #1da1f2;
   outline: none;
 }
-/* .main-form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 .form-elements {
   display: flex;
   justify-content: center;
-  /* min-width: 50%; */
 }
 .main-form {
   width: 450px;
@@ -198,16 +182,7 @@ input:focus {
   .main-left {
     display: none;
   }
-  /* .nav-li {
-    margin: 0px 10px;
-    font-size: 0.9em;
-    height: 35px;
-  } */
-  /* .button {
-    height: 40px;
-  }
- */
-  .heading {
+ .heading {
     font-size: 1.3em;
     font-weight: bolder;
     width:auto;
@@ -216,39 +191,8 @@ input:focus {
   .header-container {
     justify-content: flex-start;
   }
-  /*
-  .main-button {
-    font-size: 2em;
-  }
-  .nav-ul {
-    justify-content: space-between;
-  }
-  nav {
-    margin: 0px;
-  }
-  .main-button {
-    height: 60px;
-  }
-  .main-form {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .form-elements {
-
-    width: 95%;
-    display: flex;
-    justify-content: center;
-    flex-shrink: 1;
-  }
-  .input-field {
-    width: 100%;
-    max-width: 350px;
-  } */
 }
+
 .header {
   height: 10vh;
   display: flex;
@@ -333,7 +277,6 @@ input:focus {
   font-size: 17px;
   font-family: Roboto;
   color: #019eff;
-  /* color:#FF6201; */
 }
 .tUserName {
   opacity: 0.5;
@@ -366,9 +309,6 @@ input:focus {
   }
 }
 @media only screen and (max-width: 1200px) {
-  /* .main-left {
-    display: none;
-  } */
   .sticky-left{
     left:2%;
   }

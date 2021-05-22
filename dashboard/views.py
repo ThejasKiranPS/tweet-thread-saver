@@ -5,12 +5,17 @@ from .models import Thread
 
 # Create your views here.
 def dashboard(request):
+
     print(request.user.username + "Logged in")
-    threads = Thread.objects.all()
+    current_user = request.user.id
+    threads = Thread.objects.filter(username=current_user)
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 
-def refresh(request):
+def refresh(request):    
+    
+    # this is where we will run the script to add new mentions to our database 
+    # and store them
     threads=thread_fetch.main(request.user.username)
     for thread in threads:
         convId = thread['conversation_id']

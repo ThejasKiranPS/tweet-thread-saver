@@ -8,10 +8,6 @@ class Thread(models.Model):
     thread_author = models.CharField(max_length=150)
     thread_author_username = models.CharField(max_length=150)
     thread_tweets = models.CharField(max_length=2000)
-<<<<<<< HEAD
-    thread_time = models.DateTimeField()
-=======
 
     def __str__(self):
         return self.conversationId
->>>>>>> main

@@ -21,7 +21,7 @@ def create_headers(bearer_token):
 
 def connect_to_endpoint(url, headers):
     response = requests.request("GET", url, headers=headers)
-    print(response.status_code)
+    # print(response.status_code)
     if response.status_code != 200:
         raise Exception(response.status_code, response.text)
     return response.json()
@@ -41,7 +41,7 @@ def get_thread(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    Write.write(thread_convo, thread_original_tweet,thread_author)
+    # Write.write(thread_convo, thread_original_tweet,thread_author)
 
 def get_thread_author_only(conversation_id):
     bearer_token = auth()
@@ -58,8 +58,8 @@ def get_thread_author_only(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
-    # print(f"{thread_original_tweet}\n {thread_convo}")
+    # Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
+    #print(f"{thread_original_tweet}\n {thread_convo}")
     return process(thread_convo, thread_original_tweet, thread_author)
     
 
@@ -67,14 +67,14 @@ def process(thread_convo, thread_original_tweet, thread_author):
     userData={}
     conversation_id= thread_original_tweet['data']['id']
  
-    tweet=''
-    tweet+=thread_original_tweet['data']['text']
-    #thread_convo['data'].reverse()
-    #for t in thread_convo['data']:
-    #    if mId in t['text']:
-    #        break
-    #    tweet+= '\n'
-    #    tweet+= t['text'] 
+    tweet=[]
+    tweet.append(thread_original_tweet['data']['text'])
+    thread_convo['data'].reverse()
+    i=0
+    for t in thread_convo['data']:
+        if mId in t['text']:
+            break
+        tweet.append(t['text'])
     
     userData={
             'thread_author':thread_author['data']['name'],
@@ -90,14 +90,21 @@ def get_threads(twitterUserName):
     userData=[]
     for id in ids:
         userData.append(get_thread_author_only(id))
-    print(userData)
+    # print(userData)
     return userData
         
 
 #pass twitterUserName in main
 def main(twitterUserName= 'thejaskiranps'):
-    get_threads(twitterUserName)
+    data = get_threads(twitterUserName)
+    # print(data)
+    return data
     #get_thread_author_only(conversation_ids)
+
+
+def addByUrl(url):
+    urlSplit=url.split('status/') 
+    return [get_thread_author_only(urlSplit[1])]
 
 if __name__ == "__main__":
     main()

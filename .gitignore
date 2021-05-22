@@ -3,3 +3,5 @@
 **.vscode
 **.swp
 **.swo
+*output/*.txt
+db.sqlite3

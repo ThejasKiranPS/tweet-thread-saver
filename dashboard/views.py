@@ -6,7 +6,7 @@ from .models import Thread
 # Create your views here.
 def dashboard(request):
     print(request.user.username + " Logged in")
-    threads = Thread.objects.filter(username=request.user)
+    threads = Thread.objects.filter(user=request.user)
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 
@@ -30,6 +30,8 @@ def refresh(request):
             thread_author_username=author_username,
             thread_tweets=twitter_thread
             )
-        new_thread.save()
+        print(Thread.objects.filter(conversationId=convId).exists())
+        if not Thread.objects.filter(conversationId=convId).exists():
+            new_thread.save()
 
     return redirect("/dashboard")

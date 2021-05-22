@@ -9,7 +9,15 @@ function undo(str) {
     document.getElementById('i'+str).className="button-icon";
     document.getElementById('t'+str).className="no-display";
 }
-
+UNAME='';
+function changeTo(str,id) {
+    
+    UNAME= document.getElementById(id).innerText;
+    document.getElementById(id).innerText=str;
+}
+function undochangeTo(id) {
+    document.getElementById(id).innerText=UNAME;
+}
 //tweet click effects
 container=document.getElementById("main-element-container");
 
@@ -44,3 +52,5 @@ function sendReq(){
     console.log('te');
     form.submit();
 }
+
+//DARKMODE

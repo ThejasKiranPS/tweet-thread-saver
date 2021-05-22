@@ -107,7 +107,7 @@ body {
 }
 .heading {
   color: #1da1f2;
-  max-width: 500px;
+  width: 500px;
   font-weight: 500;
   font-size: 2.5em;
 }
@@ -207,8 +207,10 @@ input:focus {
   }
  */
   .heading {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bolder;
+    width:auto;
+    font-size:7vw;
   }
   .header-container {
     justify-content: flex-start;

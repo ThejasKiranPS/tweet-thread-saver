@@ -1,0 +1,149 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Thread Saver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <!-- <link rel="stylesheet" href="./dashboard.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class=".header">
+      <div class="header-container">
+        <img class="logo" src="{% static 'img/twitter.svg' %}" alt="logo of twitter">
+        <!-- <img class="logo" src="img/twitter.svg" alt="logo of twitter"> -->
+        <span>
+          <h1 class="heading">
+            Twitter Thread Saver</h1>
+        </span>
+
+      </div>
+    </header>
+    <main class="main">
+      <nav class="nav main-left sticky-left">
+        <ul class="nav-ul">
+          <li class="nav-li">
+            <a href="/" class="nav-a">
+              <div class="button nav-button">Home</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/about" class="nav-a">
+              <div class="button nav-button">About</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/logout" class="nav-a">
+          </li>
+          <div class="button nav-button button-active">Logout</div>
+          </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-content main-middle">
+        <!-- <div class="main-element-container" id="main-element-container">
+
+          <div class="main-element">
+            <div onclick="event.stopPropagation()">
+              <p class="tName">Amal Paul</p>
+              <p class="tUserName">@amalpaultech</p>
+            </div>
+         Hey there tweet one Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
+            dolorum dolore ex in velit et unde earudfsm daf error aut aspernatur. Tempora minima ipsum cupiditate
+            inventore,atque doloremque, reprehenderit voluptatem odio possimus esse commodi explicabo. Recusandae quia
+            architecto
+            nobis molestiae eaque.
+          
+          </div>
+          <div class="main-element">
+            <div onclick="event.stopPropagation()">
+              <p class="tName">Paul ser</p>
+              <p class="tUserName">@amalSerKiBaap</p>
+            </div>
+            Tweet 2 Lorem 30
+            HiLo</div>
+          <div class="main-element">
+            <div onclick="event.stopPropagation()">
+              <p class="tName">Thejas Kiran P S</p>
+              <p class="tUserName">@thejaskiranps</p>
+            </div>
+            Nice metting you Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+            deleniti.
+          </div> -->
+          <div class="main-element-container" id="main-element-container" >
+          {% for thread in threads %}
+          <div class="main-element">
+            <div onclick="event.stopPropagation()">
+              <p class="tName">{{ thread.thread_author }}</p>
+              <p class="tUserName">{{ thread.thread_author_username }}</p>
+            </div>
+          {{ thread.thread_tweets }}</div>
+          {% endfor %}
+        </div>
+        </div>
+      </div>
+      <div class="main-right sticky-right">
+        <div class="nav main-right">
+          <ul class="nav-ul">
+            <li class="nav-li">
+              <a href="/refresh" class="nav-a">
+                <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
+                  <!-- <img class="button-icon" id="i1" src="img/refreshing-blue.png"> -->
+                  <img class="button-icon" id="i1" src="{% static 'img/refreshing-blue.png' %}">
+
+                  <p class="no-display" id='t1'>Refresh</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#" class="nav-a">
+                <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
+                  <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
+                  <!-- <img class="button-icon" id="i2" src="img/add-blue.png"> -->
+                  <p class="no-display" id='t2'>Add</p>
+                </div>
+
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#" class="nav-a">
+                <div class="button nav-button" id='b3' onmouseover="over('3')" onmouseout="undo('3')">
+                  <!-- <img class="button-icon" id="i3" src="./img/direct-download-blue.png"> -->
+                  <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
+                  <p class="no-display" id='t3'>Download</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <a class="footer-icon" href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <!-- <img class="footer-img" src="img/github.png" alt="logo of github" /> -->
+          <img class="footer-img" src="{% static '/img/github.png' %}" alt="logo of github" />
+
+        </a>
+        <a href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <p class="footer-text">git checkout main</p>
+        </a>
+      </div>
+    </footer>
+    <form method="POST" id="request-form">
+      <input type="hidden" name="convoId" value="te">
+    </form>
+    <!-- <script src="script.js"></script> -->
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+
+  </html>
+</DOCTYPE>

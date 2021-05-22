@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Thread Saver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-ul">
+          <li class="nav-li">
+            <a href="/home">
+              <div class="button nav-button button-active">Home</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/about">
+              <div class="button nav-button">About</div>
+            </a>
+          </li>
+          <li class="nav-li">
+            <a href="/dashboard">
+              <div class="button nav-button">Dashboard</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+        {% block content %}
+
+        {% endblock %} 
+    <footer>
+      <div class="footer-container">
+        <a
+          class="footer-icon"
+          href="https://github.com/ThejasKiranPS/tweet-thread-saver"
+        >
+          <img class="footer-img" src="{% static 'github.png' %}" alt="logo of github" />
+        </a>
+        <a href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <p class="footer-text">git checkout main</p>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

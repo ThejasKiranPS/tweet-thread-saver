@@ -19,13 +19,14 @@ from django.urls import path, include
 from loginapp import urls
 from django.conf import settings
 from django.conf.urls.static import static
-from dashboard.views import dashboard, refresh
+from dashboard.views import dashboard, refresh, noLogin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(urls)),
     path('dashboard/',dashboard),
-    path('refresh/',refresh)
+    path('refresh/',refresh),
+    path('user_login',noLogin),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

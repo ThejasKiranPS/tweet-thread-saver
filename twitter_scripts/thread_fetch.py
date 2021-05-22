@@ -95,7 +95,7 @@ def get_threads(twitterUserName):
         
 
 #pass twitterUserName in main
-def main(twitterUserName= 'thejaskiranps'):
+def main(twitterUserName):
     data = get_threads(twitterUserName)
     # print(data)
     return data

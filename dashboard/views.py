@@ -4,9 +4,9 @@ from twitter_scripts import thread_fetch
 from .models import Thread
 
 # Create your views here.
-def dashboard(request):    
-    current_user = request.user.id
-    threads = Thread.objects.filter(username=current_user)
+def dashboard(request):
+    print(request.user.username + "Logged in")
+    threads = Thread.objects.filter(username=request.user.username)
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 

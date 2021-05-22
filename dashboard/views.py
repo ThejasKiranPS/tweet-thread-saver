@@ -5,15 +5,15 @@ from .models import Thread
 
 # Create your views here.
 def dashboard(request):
-
-    print(request.user.username + "Logged in")
-    current_user = request.user.id
-    threads = Thread.objects.filter(username=current_user)
+    if request.user.username == '':
+        return redirect('/user_login')
+    print(request.user.username + " Logged in")
+    threads = Thread.objects.filter(user=request.user)
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 
-def refresh(request):    
-    
+def refresh(request):
+
     # this is where we will run the script to add new mentions to our database 
     # and store them
     threads=thread_fetch.main(request.user.username)
@@ -24,7 +24,7 @@ def refresh(request):
         tweets = thread['thread_tweets']
         twitter_thread=""
         for tweet in tweets:
-            twitter_thread = twitter_thread + tweet
+            twitter_thread = twitter_thread +" "+ tweet
         new_thread = Thread(
             user=request.user,
             conversationId=convId,
@@ -32,6 +32,12 @@ def refresh(request):
             thread_author_username=author_username,
             thread_tweets=twitter_thread
             )
-        new_thread.save()
+        if not Thread.objects.filter(conversationId=convId).exists():
+            new_thread.save()
 
     return redirect("/dashboard")
+
+
+def noLogin(request):
+
+    return render(request=request, template_name='login.html')

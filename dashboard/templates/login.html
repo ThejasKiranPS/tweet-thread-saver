@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+
+    <main>
+      <div class="main-div">
+      <p class="alt-text">Please login to access Dashboard</p>
+        <form method="POST" class="main-form" action="/login">
+            {% csrf_token %}
+          <div class="form-elements">
+            <input
+                type="text" 
+                name="username" 
+                autofocus="" 
+                autocapitalize="none" 
+                autocomplete="username" 
+                maxlength="150" 
+                required="" 
+                id="id_username"
+                placeholder="twitter username"
+                class="input-field"
+            />
+          </div>
+          <div class="form-elements">
+            <input
+                type="password"  
+                name="password" 
+                autocomplete="current-password" 
+                required="" 
+                id="id_password"
+                placeholder=" password"
+                class="input-field"
+            />
+          </div>
+            
+          <button
+            class="button button-active main-button input-button"
+            type="submit"
+          >
+            Log in
+          </button>
+        </form>
+        <div class="alt-text">
+          Already have an account?
+          <span class="alt-link"><a href="/register">Sign up</a></span>
+        </div>
+        
+      </div>
+    </main>
+   
+
+{% endblock %}

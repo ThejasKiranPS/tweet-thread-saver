@@ -25,6 +25,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #1da1f2;
+  cursor:pointer;
 }
 .button-active {
   background-color: #1da1f2;
@@ -280,6 +281,7 @@ input:focus {
 }
 .nav-a {
   width: inherit;
+  cursor:default;
 }
 .main-middle {
   display: flex;
@@ -288,6 +290,7 @@ input:focus {
 }
 .main-element {
   background-color: #d3eeff;
+  cursor: pointer;
   border-radius: 16px;
   min-height: 50px;
   display: flex;

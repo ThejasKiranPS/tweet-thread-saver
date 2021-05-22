@@ -18,29 +18,6 @@ function changeTo(str,id) {
 function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
-//tweet click effects
-container=document.getElementById("main-element-container");
-
-container.onclick = clicked
-
-
-function clicked(event) {
-    if (event.target.className === "main-element-container") return;
-    deselect();
-    event.target.className+=" selected";
-    children=Array.from(container.children);
-
-    conversationId=  children.findIndex(c => c==event.target);
-    console.log(conversationId);
-}
-
-function deselect() {
-    children=Array.from(container.children)
-    for(let i=0; i<children.length; i++) {
-        children[i].classList.remove('selected');
-    }
-}
-
 downloadBtn= document.getElementById("b3");
 downloadBtn.onclick = sendReq;
 
@@ -53,4 +30,25 @@ function sendReq(){
     form.submit();
 }
 
-//DARKMODE
+
+
+//click effects
+function tweetClicked() {
+    element = this;
+    console.log(element);
+    this.classList.add(" selected");
+}
+
+mElements = document.querySelectorAll(".main-element");
+mElements.forEach(
+    (e) => e.onclick = () => {
+        deselect();
+        e.classList.add("selected");
+    }
+)
+
+function deselect() {
+    mElements.forEach(
+        e => e.classList.remove("selected")
+    )
+}

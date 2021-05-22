@@ -72,9 +72,17 @@
                 src="./img/github.png"
                 alt="github logo"
                 class="pf-img" /></a
-            ><a href="#"
-              ><img src="./img/email.svg" alt="email icon" class="pf-img"
-            /></a>
+            >
+                          
+
+            <a href="#" onclick="copyE('amalpaulofficial@gmail.com')" class="tooltip"
+              >
+              
+              <img src="./img/email.svg" alt="email icon" class="pf-img"
+            />
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+
+          </a>
         </div>
       </div>
       <div class="main-right main-element">
@@ -106,9 +114,13 @@
                 src="./img/github.png"
                 alt="github logo"
                 class="pf-img" /></a
-            ><a href="#"
-              ><img src="./img/email.svg" alt="email icon" class="pf-img"
-            /></a>
+            ><a href="#" onclick="copyE('thejaskiranps@gmail.com')" class="tooltip"
+              >
+<img src="./img/email.svg" alt="email icon" class="pf-img"
+            />
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+
+          </a>
           </div>
         </div>
       </div>
@@ -126,5 +138,20 @@
         </a>
       </div>
     </footer>
+    <input type ="text" id="email" class="no-display"></input>
+    <script >
+      function copyE(str){
+    let email = document.getElementById("email");
+    email.className="";
+    email.value=str;
+    email.select();
+    email.setSelectionRange(0,99999);
+    document.execCommand("copy");
+    email.className="no-display";
+    let tooltip = document.getElementsByClassName("tooltiptext");
+    tooltip[0].innerHTML = "Copied: " + str;
+    tooltip[1].innerHTML = "Copied: " + str;
+}
+    </script>
   </body>
 </html>

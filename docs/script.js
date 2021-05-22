@@ -52,3 +52,16 @@ function deselect() {
         e => e.classList.remove("selected")
     )
 }
+
+//copy email to clipboard
+
+function copyE(str){
+    let email = document.getElementById("email");
+    console.log(email);
+    email.value=str;
+    email.select();
+    email.setSelectionRange(0,99999);
+    document.execCommand("copy");
+    console.log('success');
+    alert('email copied');
+}

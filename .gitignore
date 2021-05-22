@@ -7,3 +7,5 @@
 venv/**
 **/migrations/__pycache__/**
 **/migrations/00**
+*output/*.txt
+db.sqlite3

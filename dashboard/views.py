@@ -33,7 +33,6 @@ def refresh(request):
             thread_author_username=author_username,
             thread_tweets=twitter_thread
             )
-        print(Thread.objects.filter(conversationId=convId).exists())
         if not Thread.objects.filter(conversationId=convId).exists():
             new_thread.save()
 

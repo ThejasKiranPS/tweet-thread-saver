@@ -9,30 +9,15 @@ function undo(str) {
     document.getElementById('i'+str).className="button-icon";
     document.getElementById('t'+str).className="no-display";
 }
-
-//tweet click effects
-container=document.getElementById("main-element-container");
-
-container.onclick = clicked
-
-
-function clicked(event) {
-    if (event.target.className === "main-element-container") return;
-    deselect();
-    event.target.className+=" selected";
-    children=Array.from(container.children);
-
-    conversationId=  children.findIndex(c => c==event.target);
-    console.log(conversationId);
+UNAME='';
+function changeTo(str,id) {
+    
+    UNAME= document.getElementById(id).innerText;
+    document.getElementById(id).innerText=str;
 }
-
-function deselect() {
-    children=Array.from(container.children)
-    for(let i=0; i<children.length; i++) {
-        children[i].classList.remove('selected');
-    }
+function undochangeTo(id) {
+    document.getElementById(id).innerText=UNAME;
 }
-
 downloadBtn= document.getElementById("b3");
 downloadBtn.onclick = sendReq;
 
@@ -43,4 +28,27 @@ function sendReq(){
     form.convoId.value = conversationId;
     console.log('te');
     form.submit();
+}
+
+
+
+//click effects
+function tweetClicked() {
+    element = this;
+    console.log(element);
+    this.classList.add(" selected");
+}
+
+mElements = document.querySelectorAll(".main-element");
+mElements.forEach(
+    (e) => e.onclick = () => {
+        deselect();
+        e.classList.add("selected");
+    }
+)
+
+function deselect() {
+    mElements.forEach(
+        e => e.classList.remove("selected")
+    )
 }

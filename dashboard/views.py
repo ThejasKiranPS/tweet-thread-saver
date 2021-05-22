@@ -5,8 +5,8 @@ from .models import Thread
 
 # Create your views here.
 def dashboard(request):
-    print(request.user.username + "Logged in")
-    threads = Thread.objects.filter(username=request.user.username)
+    print(request.user.username + " Logged in")
+    threads = Thread.objects.filter(username=request.user)
     return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 

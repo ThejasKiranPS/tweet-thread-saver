@@ -1,9 +1,9 @@
+db.sqlite3
 **.pyc
 **secrets.py
 **.vscode
 **.swp
 **.swo
 venv/**
-db.sqlite3
 **/migrations/__pycache__/**
 **/migrations/00**

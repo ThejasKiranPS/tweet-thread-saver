@@ -7,9 +7,10 @@ from .models import Thread
 def dashboard(request):
     if request.user.username == '':
         return redirect('/user_login')
-    print(request.user.username + " Logged in")
-    threads = Thread.objects.filter(user=request.user)
-    return render(request=request, template_name="dashboard.html", context={'threads': threads})
+    else:
+        print(request.user.username + " Logged in")
+        threads = Thread.objects.filter(user=request.user)
+        return render(request=request, template_name="dashboard.html", context={'threads': threads})
 
 
 def refresh(request):

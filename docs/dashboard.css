@@ -8,9 +8,6 @@
   font-family: Roboto;
   /* border:1px solid black;   */
 }
-html{
-  width:100vw;
-}
 body {
   margin: 0;
   background-color: var(--bg);
@@ -110,8 +107,7 @@ body {
 }
 .heading {
   color: #1da1f2;
-  width: fit-content;
-  width: 500px;
+  max-width: 500px;
   font-weight: 500;
   font-size: 2.5em;
 }
@@ -369,10 +365,10 @@ input:focus {
     display: none;
   } */
   .sticky-left{
-    left:1%;
+    left:2%;
   }
   .sticky-right {
-    right:1%;
+    right:2%;
   }
 }
 @media only screen and (max-width: 970px) {

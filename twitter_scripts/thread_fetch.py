@@ -4,10 +4,10 @@ from twitter_scripts import secrets
 from twitter_scripts import urls
 from twitter_scripts import Write
 from twitter_scripts import fetch_mention
-# import secrets
-# import urls
-# import Write
-# import fetch_mention
+#import secrets
+#import urls
+#import Write
+#import fetch_mention
 
 mId='amalpaultech'
 
@@ -58,7 +58,7 @@ def get_thread_author_only(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
 
-    # Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
+    #Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
     #print(f"{thread_original_tweet}\n {thread_convo}")
     return process(thread_convo, thread_original_tweet, thread_author)
     
@@ -71,7 +71,11 @@ def process(thread_convo, thread_original_tweet, thread_author):
     tweet.append(thread_original_tweet['data']['text'])
     thread_convo['data'].reverse()
     i=0
+    author_id = thread_original_tweet['data']['author_id']
+
     for t in thread_convo['data']:
+        if author_id != t['author_id']:
+            break 
         if mId in t['text']:
             break
         tweet.append(t['text'])
@@ -82,6 +86,7 @@ def process(thread_convo, thread_original_tweet, thread_author):
             'thread_tweets':tweet,
             'conversation_id': conversation_id,
             }
+    print(userData)
     return userData
 
 

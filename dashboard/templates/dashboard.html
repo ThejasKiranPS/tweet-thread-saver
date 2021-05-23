@@ -47,7 +47,7 @@
             <a href="/logout" class="nav-a">
           </li>
           <div class="button nav-button button-active name-btn wider" id="user-name-btn"
-            onmouseover="changeTo('Log out','user-name-btn')" onmouseout="undochangeTo('user-name-btn')">@thejaskiranps
+            onmouseover="changeTo('Log out','user-name-btn')" onmouseout="undochangeTo('user-name-btn')">@{{ username }}
           </div>
           </a>
           </li>
@@ -100,7 +100,7 @@
               <a href="#" class="nav-a">
                 <div class="button nav-button wider" onclick="download()" onmouseover="over('3')"
                   onmouseout="undo('3')">
-                  <img class="button-icon" id="i2" src="{% static 'img/direct-download-blue.png' %}">
+                  <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
                   <!-- <img class="button-icon" id="i3" src="img/direct-download-blue.png"> -->
                   <p class="no-display" id='t3'>Download</p>
                 </div>
@@ -125,9 +125,9 @@
         </a>
       </div>
     </footer>
-    <form method="POST" action="add_by_url/" id="request-form">
+    <form method="POST" action="/addbyurl/" id="request-form">
       {% csrf_token %}
-      <input type="hidden" name="convoId" value="te">
+      <input type="hidden" name="convoId" value="">
     </form>
     <!-- <script src="./script.js"></script> -->
     <script src="{% static 'js/script.js' %}"></script>

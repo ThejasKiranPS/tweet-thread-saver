@@ -16,10 +16,8 @@ def dashboard(request):
 
 
 def refresh(request):
-
-    # this is where we will run the script to add new mentions to our database 
-    # and store them
-    threads=thread_fetch.main(request.user.username)
+    print(f"refresh called by {request.user.username}")
+    threads=thread_fetch.main("thejaskiranps")
     for thread in threads:
         convId = thread['conversation_id']
         author = thread['thread_author']
@@ -51,30 +49,29 @@ def about(request):
 
     return render(request=request, template_name="about.html")
 
-def addByUrl(response):
+def addbyurl(response):
     
     if response.method == "POST":
-        form = request.POST
-        print(form['convoId'])
-    # threads=thread_fetch.addByUrl(convId)
-    # for thread in threads:
-    #     convId = thread['conversation_id']
-    #     author = thread['thread_author']
-    #     author_username = thread['thread_author_username']
-    #     tweets = thread['thread_tweets']
-    #     twitter_thread=""
-    #     profile_banner = profile_fetch.get_profile_url(author_username)
-    #     for tweet in tweets:
-    #         twitter_thread = twitter_thread +" "+ tweet
-    #     new_thread = Thread(
-    #         user=request.user,
-    #         conversationId=convId,
-    #         thread_author=author,
-    #         thread_author_username=author_username,
-    #         thread_author_banner=profile_banner,
-    #         thread_tweets=twitter_thread
-    #         )
-    #     if not Thread.objects.filter(conversationId=convId).exists():
-    #         new_thread.save()
+        convId=response.POST['convoId']
+    threads=thread_fetch.addByUrl(convId)
+    for thread in threads:
+        convId = thread['conversation_id']
+        author = thread['thread_author']
+        author_username = thread['thread_author_username']
+        tweets = thread['thread_tweets']
+        twitter_thread=""
+        profile_banner = profile_fetch.get_profile_url(author_username)
+        for tweet in tweets:
+            twitter_thread = twitter_thread +" "+ tweet
+        new_thread = Thread(
+            user=response.user,
+            conversationId=convId,
+            thread_author=author,
+            thread_author_username=author_username,
+            thread_author_banner=profile_banner,
+            thread_tweets=twitter_thread
+            )
+        if not Thread.objects.filter(conversationId=convId).exists():
+            new_thread.save()
 
     return redirect("/dashboard")

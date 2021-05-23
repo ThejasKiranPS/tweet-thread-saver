@@ -20,20 +20,11 @@ function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
 //send req to django
-<<<<<<< HEAD
-function sendReq(){
-    console.log('test');
-    let form = document.getElementById("request-form");
-    form.convoId.value = conversationId;
-    console.log('te');
-    form.submit();
-=======
 function sendReq(convId){
     let form = document.getElementById("request-form");
     form.convoId.value = convId;
     form.submit();
     console.log('test');
->>>>>>> 33e38505af567666073ca60cbb0f85bb1fbe843f
 }
 
 
@@ -81,8 +72,7 @@ function getInput() {
        alert('Enter the full url');
        return; 
     }
-    convId = url.split("status/")[1];
-    sendReq(convId);
+    sendReq(url);
 }
 
 //download

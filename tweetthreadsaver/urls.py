@@ -19,7 +19,7 @@ from django.urls import path, include
 from loginapp import urls
 from django.conf import settings
 from django.conf.urls.static import static
-from dashboard.views import dashboard, refresh, noLogin, about, addByUrl
+from dashboard.views import dashboard, refresh, noLogin, about, addbyurl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +28,7 @@ urlpatterns = [
     path('refresh/',refresh),
     path('user_login',noLogin),
     path('about/', about),
-    path('add_by_url',addByUrl)
+    path('addbyurl/',addbyurl)
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

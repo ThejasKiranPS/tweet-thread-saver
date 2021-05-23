@@ -56,7 +56,7 @@
       <div class="main-content main-middle">
         <div class="main-element-container" id="main-element-container">
           {% for thread in threads %}
-          <div class="main-element">
+          <div class="main-element" convoId={{ thread.conversationId }}>
             <div class="main-element-withimage">
               <div class="tweet-img">
                 <img class="tweet-img" src="{{ thread.thread_author_banner }}">
@@ -128,6 +128,10 @@
     <form method="POST" action="/addbyurl/" id="request-form">
       {% csrf_token %}
       <input type="hidden" name="convoId" value="">
+    </form>
+    <form method="POST" action="/deletethread/" id="delete-thread">
+      {% csrf_token %}
+      <input typer="hidden" name="convoId" value="">
     </form>
     <!-- <script src="./script.js"></script> -->
     <script src="{% static 'js/script.js' %}"></script>

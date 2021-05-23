@@ -366,9 +366,9 @@ input:focus {
   font-weight:bold;
 }
 .name-btn:hover{
-  background-color: white;
-  border-color: #ff7c7c;
-  color:#ff7c7c;
+  background-color: #ff3e7b;
+  border-color:transparent;
+  color:#ffffff;
   width:170px;
 }
 .wider{

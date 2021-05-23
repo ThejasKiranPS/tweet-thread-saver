@@ -100,7 +100,7 @@ def get_threads(twitterUserName):
         
 
 #pass twitterUserName in main
-def main(twitterUserName= ''):
+def main(twitterUserName):
     data = get_threads(twitterUserName)
     # print(data)
     return data

@@ -1,3 +1,4 @@
+let selected = document.querySelector('.main-element');
 //main-right button hover effects
 conversationId='';
 function over(str) {
@@ -18,9 +19,6 @@ function changeTo(str,id) {
 function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
-downloadBtn= document.getElementById("b3");
-downloadBtn.onclick = sendReq;
-
 //send req to django
 function sendReq(){
     console.log('test');
@@ -44,6 +42,7 @@ mElements.forEach(
     (e) => e.onclick = () => {
         deselect();
         e.classList.add("selected");
+        selected=e;
     }
 )
 
@@ -64,4 +63,36 @@ function copyE(str){
     document.execCommand("copy");
     console.log('success');
     alert('email copied');
+}
+
+// add tweet by url
+
+function getInput() {
+    let url = window.prompt('Enter the full tweet url');
+    url = url.split("status/")[1];
+}
+
+//download
+
+let filename = '';
+function download() {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(processTweet()));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function processTweet() {
+    tName= selected.children[0].children[1].children[0].children[0].innerText;
+    tUserName = selected.children[0].children[1].children[0].children[1].innerText;
+    tTweet = selected.children[0].children[1].children[1].innerText;
+    let processedTweet = tName + '  '+tUserName + '\n' + tTweet;
+    filename='tweet_'+tUserName;
+    return processedTweet;
 }

@@ -24,9 +24,7 @@
         </span>
       </div>
       <div class="user-container">
-        <div class="tweet-img user-img">
-          <img class="user-img" src="img/tkps_400x400.jpg">
-        </div>
+
         <div class="tUserName user-name">
           @thejaskiranps
         </div>
@@ -58,38 +56,42 @@
           <div class="main-element">
             <div class="main-element-withimage">
               <div class="tweet-img">
-                <img>
+                <img class="tweet-img" src="./img/ap_400x400.jpg">
               </div>
               <div class="main-element-text">
                 <div >
                   <p class="tName">Amal Paul</p>
                   <p class="tUserName">@amalpaultech</p>
                 </div>
+                <p>
                 Hey there tweet one Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
                 dolorum dolore ex in velit et unde earudfsm daf error aut aspernatur. Tempora minima ipsum cupiditate
                 inventore,atque doloremque, reprehenderit voluptatem odio possimus esse commodi explicabo. Recusandae
                 quia
                 architecto
                 nobis molestiae eaque.
+              </p>
               </div>
             </div>
           </div>
           <div class="main-element">
             <div class="main-element-withimage">
               <div class="tweet-img">
-                <img>
+                <img class="tweet-img" src="./img/tkps_400x400.jpg">
               </div>
               <div class="main-element-text">
                 <div >
                   <p class="tName">Thejas Kiran P S</p>
                   <p class="tUserName">@thejaskiranps</p>
                 </div>
+                <p>
                 Hey there tweet one Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
                 dolorum dolore ex in velit et unde earudfsm daf error aut aspernatur. Tempora minima ipsum cupiditate
                 inventore,atque doloremque, reprehenderit voluptatem odio possimus esse commodi explicabo. Recusandae
                 quia
                 architecto
                 nobis molestiae eaque.
+                </p>
               </div>
             </div>
           </div><div class="main-element">
@@ -102,12 +104,14 @@
                   <p class="tName">Paul Ser</p>
                   <p class="tUserName">@amalKiBaap</p>
                 </div>
+                <p>
                 Hey there tweet one Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
                 dolorum dolore ex in velit et unde earudfsm daf error aut aspernatur. Tempora minima ipsum cupiditate
                 inventore,atque doloremque, reprehenderit voluptatem odio possimus esse commodi explicabo. Recusandae
                 quia
                 architecto
                 nobis molestiae eaque.
+                </p>
               </div>
             </div>
           </div>
@@ -139,7 +143,7 @@
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button wider" onmouseover="over('2')" onmouseout="undo('2')">
+                <div class="button nav-button wider" onclick="getInput()" onmouseover="over('2')" onmouseout="undo('2')">
                   <!-- <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}"> -->
                   <img class="button-icon" id="i2" src="img/add-blue.png">
                   <p class="no-display" id='t2'>Add</p>
@@ -149,11 +153,12 @@
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button wider" id='b3' onmouseover="over('3')" onmouseout="undo('3')">
-                  <img class="button-icon" id="i3" src="./img/direct-download-blue.png">
-                  <!-- <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}"> -->
+                <div class="button nav-button wider" onclick="download()" onmouseover="over('3')" onmouseout="undo('3')">
+                  <!-- <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}"> -->
+                  <img class="button-icon" id="i3" src="img/direct-download-blue.png">
                   <p class="no-display" id='t3'>Download</p>
                 </div>
+
               </a>
             </li>
           </ul>
@@ -177,7 +182,7 @@
     <form method="POST" id="request-form">
       <input type="hidden" name="convoId" value="te">
     </form>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <!-- <script src="{% static 'js/script.js' %}"></script> -->
   </body>
 

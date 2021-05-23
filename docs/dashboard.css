@@ -337,7 +337,6 @@ input:focus {
 .tweet-img {
   height: 50px;
   width: 50px;
-  background-color: black;
   border-radius: 50%;
   flex-shrink: 0;
   margin-right: 10px;
@@ -374,4 +373,8 @@ input:focus {
 }
 .wider{
   width:170px;
+}
+.main-element-text p {
+  margin:0;
+  margin-top:10px;
 }

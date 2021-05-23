@@ -6,6 +6,6 @@
 **.swo
 venv/**
 **/migrations/__pycache__/**
-**/migrations/00**
+dashboard/migrations/00**
 *output/*.txt
 db.sqlite3

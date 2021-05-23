@@ -1,0 +1,143 @@
+* {
+    /* border:1px solid black; */
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+.header{
+    display:flex;
+    margin-top:10px;
+    justify-content: space-between;
+}
+
+.header-left {
+    flex:1;
+}
+.header-middle {
+    flex:3;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: 500;
+    color:#1da1f2;
+}
+.header-right {
+    flex:1;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav-li{
+    width:110px;
+    margin: 0 15px;
+}
+.main-container{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height:unset;
+}
+.main-element{
+    flex-basis: 550px;
+    background-color: #F1FBFF;
+    min-height:400px;
+    position:relative;
+    margin-top:200px;
+    margin-bottom:100px;
+    text-align:center;
+    border-radius: 20px;
+    border: 0.5px solid #e8f8ff;
+    margin-left:5px;
+    margin-right:5px;
+
+}
+.profile-pic img {
+    position:relative;
+    top:-110px;
+    width:220px;
+    margin:auto;
+ }
+ .profile-name{
+    position:relative;
+    top:-100px;
+    margin-bottom: 30px;
+ }
+ .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  font-size:.9em;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 0%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+ .task{ 
+    position: relative;
+    top:-100px;
+    font-weight: 500;
+    font-size:1.1em;
+  }
+.task-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width:250px;
+    margin:0 auto;
+    min-width:160px;
+}
+.profile-text-container {
+    text-align: center;
+}
+.stacks{
+    position:relative;
+    top:-70px;
+    /* font-weight: 500; */
+}
+
+.pf-img {
+    height:auto;
+    width:40px;
+}
+.profile-footer {
+    display:flex;
+    justify-content: space-evenly;
+    position: relative;
+    top:-20px; 
+}
+.no-display{
+    display:none;
+}
+a {
+    color:inherit;
+}
+html {
+    width:100vw;
+}
+.profile-text {
+    text-align: center;
+}
+
+@media only screen and (max-width:700px) {
+    .header a {
+        font-size: 13vw;
+    }
+}

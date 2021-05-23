@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <header class=".header">
+    <header class="header">
       <div class="header-container">
         <img class="logo" src="{% static 'img/twitter.svg' %}" alt="logo of twitter">
         <!-- <img class="logo" src="img/twitter.svg" alt="logo of twitter"> -->
@@ -22,7 +22,12 @@
           <h1 class="heading">
             Twitter Thread Saver</h1>
         </span>
+      </div>
+      <div class="user-container">
 
+        <div class="tUserName user-name">
+          @{{ username }}
+        </div>
       </div>
     </header>
     <main class="main">
@@ -30,51 +35,60 @@
         <ul class="nav-ul">
           <li class="nav-li">
             <a href="/" class="nav-a">
-              <div class="button nav-button">Home</div>
+              <div class="button nav-button wider">Home</div>
             </a>
           </li>
           <li class="nav-li">
             <a href="/about" class="nav-a">
-              <div class="button nav-button">About</div>
+              <div class="button nav-button wider">About</div>
             </a>
           </li>
           <li class="nav-li">
             <a href="/logout" class="nav-a">
           </li>
-          <div class="button nav-button button-active">Logout</div>
+          <div class="button nav-button button-active name-btn wider" id="user-name-btn"
+            onmouseover="changeTo('Log out','user-name-btn')" onmouseout="undochangeTo('user-name-btn')">@thejaskiranps
+          </div>
           </a>
           </li>
         </ul>
       </nav>
       <div class="main-content main-middle">
-          <div class="main-element-container" id="main-element-container" >
+        <div class="main-element-container" id="main-element-container">
           {% for thread in threads %}
           <div class="main-element">
-            <div onclick="event.stopPropagation()">
-              <p class="tName">{{ thread.thread_author }}</p>
-              <p class="tUserName">{{ thread.thread_author_username }}</p>
+            <div class="main-element-withimage">
+              <div class="tweet-img">
+                <img class="tweet-img" src="{{ thread.thread_author_banner }}">
+              </div>
+              <div class="main-element-text">
+                <div>
+                  <p class="tName">{{ thread.thread_author }}</p>
+                  <p class="tUserName">{{ thread.thread_author_username }}</p>
+                </div>
+                <p>{{ thread.thread_tweets }}</p>
+              </div>
             </div>
-          {{ thread.thread_tweets }}</div>
-          {% endfor %}
         </div>
-        </div>
+        {% endfor %}
+      </div>
       </div>
       <div class="main-right sticky-right">
         <div class="nav main-right">
           <ul class="nav-ul">
             <li class="nav-li">
               <a href="/refresh" class="nav-a">
-                <div class="button nav-button" onmouseover="over('1')" onmouseout="undo('1')">
+                <div class="button nav-button wider" onmouseover="over('1')" onmouseout="undo('1')">
                   <!-- <img class="button-icon" id="i1" src="img/refreshing-blue.png"> -->
                   <img class="button-icon" id="i1" src="{% static 'img/refreshing-blue.png' %}">
-
                   <p class="no-display" id='t1'>Refresh</p>
                 </div>
               </a>
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button" onmouseover="over('2')" onmouseout="undo('2')">
+                <div class="button nav-button wider" onclick="getInput()" onmouseover="over('2')"
+                  onmouseout="undo('2')">
                   <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
                   <!-- <img class="button-icon" id="i2" src="img/add-blue.png"> -->
                   <p class="no-display" id='t2'>Add</p>
@@ -84,15 +98,18 @@
             </li>
             <li class="nav-li">
               <a href="#" class="nav-a">
-                <div class="button nav-button" id='b3' onmouseover="over('3')" onmouseout="undo('3')">
-                  <!-- <img class="button-icon" id="i3" src="./img/direct-download-blue.png"> -->
-                  <img class="button-icon" id="i3" src="{% static 'img/direct-download-blue.png' %}">
+                <div class="button nav-button wider" onclick="download()" onmouseover="over('3')"
+                  onmouseout="undo('3')">
+                  <img class="button-icon" id="i2" src="{% static 'img/add-blue.png' %}">
+                  <!-- <img class="button-icon" id="i3" src="img/direct-download-blue.png"> -->
                   <p class="no-display" id='t3'>Download</p>
                 </div>
+
               </a>
             </li>
           </ul>
         </div>
+      </div>
       </div>
 
     </main>
@@ -108,10 +125,11 @@
         </a>
       </div>
     </footer>
-    <form method="POST" id="request-form">
+    <form method="POST" action="add_by_url/" id="request-form">
+      {% csrf_token %}
       <input type="hidden" name="convoId" value="te">
     </form>
-    <!-- <script src="script.js"></script> -->
+    <!-- <script src="./script.js"></script> -->
     <script src="{% static 'js/script.js' %}"></script>
   </body>
 

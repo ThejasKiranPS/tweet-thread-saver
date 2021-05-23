@@ -79,6 +79,8 @@ def addbyurl(response):
 def deletethread(response):
     
     if response.method == "POST":
-        convId = response.POST['convId']
+        convId = response.POST['convoId']
     thread = Thread.objects.get(conversationId=convId,user=response.user)
     thread.delete()
+
+    return redirect("/dashboard")

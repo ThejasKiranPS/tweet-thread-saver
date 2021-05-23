@@ -19,7 +19,7 @@ from django.urls import path, include
 from loginapp import urls
 from django.conf import settings
 from django.conf.urls.static import static
-from dashboard.views import dashboard, refresh, noLogin, about, addbyurl
+from dashboard.views import dashboard, refresh, noLogin, about, addbyurl, deletethread
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +28,8 @@ urlpatterns = [
     path('refresh/',refresh),
     path('user_login',noLogin),
     path('about/', about),
-    path('addbyurl/',addbyurl)
+    path('addbyurl/',addbyurl),
+    path("deletethread/",deletethread)
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

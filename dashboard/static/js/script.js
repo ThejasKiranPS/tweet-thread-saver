@@ -104,7 +104,7 @@ function deleteT() {
     sendReq(convoId,'delete-thread');  
     }
 function listen(e) {
-    if (e.key===Delete) {
+    if (e.key==='Delete') {
         deleteT();
         }
 }

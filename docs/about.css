@@ -8,10 +8,7 @@
     margin-top:10px;
     justify-content: space-between;
 }
-.nav-bar {
-    float:right;
-    display:none;
-}
+
 .header-left {
     flex:1;
 }
@@ -70,7 +67,8 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 240px;
+  width: 250px;
+  font-size:.9em;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -79,21 +77,10 @@
   position: absolute;
   z-index: 1;
   bottom: 150%;
-  left: 50%;
+  left: 0%;
   margin-left: -75px;
   opacity: 0;
   transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
@@ -134,4 +121,7 @@
 }
 .no-display{
     display:none;
+}
+a {
+    color:inherit;
 }

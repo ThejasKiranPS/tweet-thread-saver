@@ -103,3 +103,9 @@ function deleteT() {
     let convoId=selected.getAttribute('convoId');
     sendReq(convoId,'delete-thread');  
     }
+function listen(e) {
+    if (e.key===Delete) {
+        deleteT();
+        }
+}
+document.onkeypress=listen;

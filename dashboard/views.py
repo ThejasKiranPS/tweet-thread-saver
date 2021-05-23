@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from twitter_scripts import thread_fetch
+from twitter_scripts import thread_fetch, profile_fetch
 from .models import Thread
 
 # Create your views here.
@@ -24,6 +24,7 @@ def refresh(request):
         author_username = thread['thread_author_username']
         tweets = thread['thread_tweets']
         twitter_thread=""
+        profile_banner = profile_fetch.get_profile_url(author_username)
         for tweet in tweets:
             twitter_thread = twitter_thread +" "+ tweet
         new_thread = Thread(
@@ -31,6 +32,7 @@ def refresh(request):
             conversationId=convId,
             thread_author=author,
             thread_author_username=author_username,
+            thread_author_banner=profile_banner,
             thread_tweets=twitter_thread
             )
         if not Thread.objects.filter(conversationId=convId).exists():

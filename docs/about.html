@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Thread Saver</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-left"></div>
+      <div class="header-middle"><a href="#">About us</a></div>
+      <div class="header-right">
+        <!-- <nav class="nav-bar">
+          <ul class="nav-ul">
+            <li class="nav-li">
+              <a href="#">
+                <div class="button nav-button">Home</div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="#">
+                <div class="button nav-button button-active">About</div>
+              </a>
+            </li>
+            <li class="nav-li">
+              <a href="./dashboard.html">
+                <div class="button nav-button">Dashboard</div>
+              </a>
+            </li>
+          </ul>
+        </nav> -->
+      </div>
+    </header>
+    <main class="main-container">
+      <div class="main-left main-element">
+        <div class="profile-pic">
+          <img src="img/ap.png" alt="" />
+        </div>
+        <div class="profile-text-container">
+          <h1 class="heading profile-name">Amal Paul</h1>
+          <div class="profile-text">
+            <ul class="task-ul">
+              <li class="task">•User Management</li>
+              <li class="task">•Database</li>
+              <li class="task">•Hosting</li>
+              <li class="task">•Django</li>
+              <li class="task">•Back End</li>
+            </ul>
+            <p class="stacks">
+              <i>--Python--Django--ServerManagement--</i>
+            </p>
+          </div>
+        </div>
+
+        <div class="profile-footer">
+          <a href="https://www.linkedin.com/in/amal-paul-899069183/"
+              ><img
+                src="img/linkedin.svg"
+                alt="linkedin logo"
+                class="pf-img" /></a
+            ><a href="https://github.com/amalpaul54111"
+              ><img
+                src="./img/github.png"
+                alt="github logo"
+                class="pf-img" /></a
+            >
+                          
+
+            <a href="#" onclick="copyE('amalpaulofficial@gmail.com')" class="tooltip"
+              >
+              
+              <img src="./img/email.svg" alt="email icon" class="pf-img"
+            />
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+
+          </a>
+        </div>
+      </div>
+      <div class="main-right main-element">
+        <div class="profile-pic">
+          <img src="img/tkps.png" alt="" />
+        </div>
+        <div class="profile-text-container">
+          <h1 class="heading profile-name">Thejas Kiran P S</h1>
+          <div class="profile-text">
+            <ul class="task-ul">
+              <li class="task">•Web Design</li>
+              <li class="task">•Documentation</li>
+              <li class="task">•API Scripting</li>
+              <li class="task">•JavaScript</li>
+              <li class="task">•Front End</li>
+            </ul>
+            <p class="stacks">
+              <i>--Python--JavaScript--Linux--</i>
+            </p>
+          </div>
+          <div class="profile-footer">
+            <a href="https://in.linkedin.com/in/thejas-kiran-p-s-680346139"
+              ><img
+                src="img/linkedin.svg"
+                alt="linkedin logo"
+                class="pf-img" /></a
+            ><a href="https://github.com/ThejasKiranPS"
+              ><img
+                src="./img/github.png"
+                alt="github logo"
+                class="pf-img" /></a
+            ><a href="#" onclick="copyE('thejaskiranps@gmail.com')" class="tooltip"
+              >
+<img src="./img/email.svg" alt="email icon" class="pf-img"
+            />
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+
+          </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <a
+          class="footer-icon"
+          href="https://github.com/ThejasKiranPS/tweet-thread-saver"
+        >
+          <img class="footer-img" src="./img/github.png" alt="logo of github" />
+        </a>
+        <a href="https://github.com/ThejasKiranPS/tweet-thread-saver">
+          <p class="footer-text">git checkout main</p>
+        </a>
+      </div>
+    </footer>
+    <input type ="text" id="email" class="no-display"></input>
+    <script >
+      function copyE(str){
+    let email = document.getElementById("email");
+    email.className="";
+    email.value=str;
+    email.select();
+    email.setSelectionRange(0,99999);
+    document.execCommand("copy");
+    email.className="no-display";
+    let tooltip = document.getElementsByClassName("tooltiptext");
+    tooltip[0].innerHTML = "Copied: " + str;
+    tooltip[1].innerHTML = "Copied: " + str;
+}
+    </script>
+  </body>
+</html>

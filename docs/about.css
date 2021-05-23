@@ -2,6 +2,8 @@
     /* border:1px solid black; */
     margin:0;
     padding:0;
+    box-sizing: border-box;
+
 }
 .header{
     display:flex;
@@ -13,11 +15,11 @@
     flex:1;
 }
 .header-middle {
-    flex:1;
+    flex:3;
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size: 5vw;
+    font-size: 100px;
     font-weight: 500;
     color:#1da1f2;
 }
@@ -98,8 +100,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width:fit-content;
+    max-width:250px;
     margin:0 auto;
+    min-width:160px;
 }
 .profile-text-container {
     text-align: center;
@@ -128,4 +131,13 @@ a {
 }
 html {
     width:100vw;
+}
+.profile-text {
+    text-align: center;
+}
+
+@media only screen and (max-width:700px) {
+    .header a {
+        font-size: 13vw;
+    }
 }

@@ -20,12 +20,11 @@ function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
 //send req to django
-function sendReq(){
-    console.log('test');
+function sendReq(convId){
     let form = document.getElementById("request-form");
-    form.convoId.value = conversationId;
-    console.log('te');
+    form.convoId.value = convId;
     form.submit();
+    console.log('test');
 }
 
 
@@ -69,7 +68,12 @@ function copyE(str){
 
 function getInput() {
     let url = window.prompt('Enter the full tweet url');
-    url = url.split("status/")[1];
+    if (url.includes('status/')==false) {
+       alert('Enter the full url');
+       return; 
+    }
+    convId = url.split("status/")[1];
+    sendReq(convId);
 }
 
 //download

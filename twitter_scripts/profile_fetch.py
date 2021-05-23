@@ -1,8 +1,8 @@
-# from twitter_scripts import tweepy
-# from twitter_scripts import secrets
-
 import tweepy
-import secrets
+from twitter_scripts import secrets
+
+# import tweepy
+# import secrets
 # Authenticate to Twitter
 auth = tweepy.OAuthHandler(secrets.api_key, secrets.api_secret_key)
 auth.set_access_token(secrets.access_token, secrets.access_token_secret)

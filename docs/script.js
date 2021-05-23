@@ -20,11 +20,10 @@ function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
 //send req to django
-function sendReq(convId){
-    let form = document.getElementById("request-form");
+function sendReq(convId, formId="request-form"){
+    let form = document.getElementById(formId);
     form.convoId.value = convId;
     form.submit();
-    console.log('test');
 }
 
 
@@ -100,3 +99,7 @@ function processTweet() {
     filename='tweet_'+tUserName;
     return processedTweet;
 }
+function deleteT() {
+    let convoId=selected.getAttribute('convoId');
+    sendReq(convoId,'delete-thread');  
+    }

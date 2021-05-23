@@ -7,4 +7,6 @@ class Thread(models.Model):
     conversationId = models.IntegerField(null=False)
     thread_author = models.CharField(max_length=150)
     thread_author_username = models.CharField(max_length=150)
+    thread_author_banner = models.CharField(max_length=100)
     thread_tweets = models.CharField(max_length=2000)
+

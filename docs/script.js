@@ -23,10 +23,8 @@ downloadBtn.onclick = sendReq;
 
 //send req to django
 function sendReq(){
-    console.log('test');
     let form = document.getElementById("request-form");
     form.convoId.value = conversationId;
-    console.log('te');
     form.submit();
 }
 

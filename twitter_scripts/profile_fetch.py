@@ -21,7 +21,7 @@ def check_authentication():
 def get_profile_url(screenname):
     user = api.get_user(screenname)
     image_url = user.profile_image_url_https.replace("_normal", "")
-    print(image_url)
+    # print(image_url)
     return image_url
 
 

@@ -17,7 +17,7 @@ def dashboard(request):
 
 def refresh(request):
     print(f"refresh called by {request.user.username}")
-    threads=thread_fetch.main("thejaskiranps")
+    threads=thread_fetch.main(request.user.username)
     for thread in threads:
         convId = thread['conversation_id']
         author = thread['thread_author']

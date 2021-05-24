@@ -71,8 +71,7 @@ function getInput() {
        alert('Enter the full url');
        return; 
     }
-    convId = url.split("status/")[1];
-    sendReq(convId);
+    sendReq(url);
 }
 
 //download
@@ -104,7 +103,7 @@ function deleteT() {
     sendReq(convoId,'delete-thread');  
     }
 function listen(e) {
-    if (e.key===Delete) {
+    if (e.key==='Delete') {
         deleteT();
         }
 }

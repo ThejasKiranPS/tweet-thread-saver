@@ -45,7 +45,7 @@ BFH/recWiN3KIjwN7UmOy/2021
 
 ## Libraries used
 
-[Library Name - Version](https://github.com/ThejasKiranPS/tweet-thread-saver/blob/main/requirements.txt)
+[Requirements.txt](https://github.com/ThejasKiranPS/tweet-thread-saver/blob/main/requirements.txt)
 
 ## How to configure
 

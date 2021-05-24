@@ -2,7 +2,7 @@ import requests
 import json
 from twitter_scripts import secrets
 from twitter_scripts import urls
-from twitter_scripts import Write
+# from twitter_scripts import Write
 from twitter_scripts import fetch_mention
 #import secrets
 #import urls

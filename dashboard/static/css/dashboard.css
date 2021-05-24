@@ -43,7 +43,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   padding: 0px;
   flex-basis: 100px;
 }

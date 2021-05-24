@@ -1,8 +1,11 @@
-*.pyc
+**db.sqlite3**
+**.pyc
 **secrets.py
 **.vscode
 **.swp
 **.swo
 venv/**
+**/migrations/__pycache__/**
+dashboard/migrations/00**
+*output/*.txt
 db.sqlite3
-**/migrations/00**

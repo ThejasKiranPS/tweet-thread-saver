@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pln+yf(116(1^o5j#ne@$$^rwg0p!(x3yed^^!8#p(0a%b00e*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['207.46.236.19','127.0.0.1']
+ALLOWED_HOSTS = ['207.46.236.19','127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -135,7 +135,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "/dashboard"
 
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/user_login"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")

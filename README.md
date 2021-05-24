@@ -4,7 +4,7 @@
 
 A website where you can save & download your favourite tweets.
 You can get the tweet either by mentioning our bot -> *@threadsaverbfh*
-or by copying the url of tweet and add it in the site.
+or by copying the url of tweet and adding it in the site.
 
 ## Team members
 

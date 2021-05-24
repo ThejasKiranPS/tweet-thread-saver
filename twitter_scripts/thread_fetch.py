@@ -69,7 +69,7 @@ def process(thread_convo, thread_original_tweet, thread_author):
  
     tweet=[]
     tweet.append(thread_original_tweet['data']['text'])
-    print(thread_convo)
+    # print(thread_convo)
     thread_convo['data'].reverse()
     i=0
     author_id = thread_original_tweet['data']['author_id']
@@ -87,7 +87,7 @@ def process(thread_convo, thread_original_tweet, thread_author):
             'thread_tweets':tweet,
             'conversation_id': conversation_id,
             }
-    print(userData)
+    # print(userData)
     return userData
 
 

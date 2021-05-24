@@ -73,7 +73,7 @@ def addbyurl(response):
             thread_author_banner=profile_banner,
             thread_tweets=twitter_thread
             )
-        if not Thread.objects.filter(conversationId=convId,user=request.user).exists():   
+        if not Thread.objects.filter(conversationId=convId,user=response.user).exists():   
             new_thread.save()
 
     return redirect("/dashboard")

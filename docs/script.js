@@ -71,8 +71,7 @@ function getInput() {
        alert('Enter the full url');
        return; 
     }
-    convId = url.split("status/")[1];
-    sendReq(convId);
+    sendReq(url);
 }
 
 //download

@@ -39,7 +39,7 @@ BFH/recWiN3KIjwN7UmOy/2021
 
 - Select any tweet by clicking on it and click download button
 
-### Deleting tweets
+### Deleting tweets (.txt)
 
 - Select any tweet and press Delete button on your keyboard
 

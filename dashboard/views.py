@@ -1,8 +1,9 @@
+from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from requests.api import request
 from twitter_scripts import thread_fetch, profile_fetch
-from .models import Thread
+from .models import DeletedThread, Thread
 from .forms import ConvoForm
     
 # Create your views here.
@@ -35,8 +36,9 @@ def refresh(request):
             thread_author_banner=profile_banner,
             thread_tweets=twitter_thread
             )
-        if not Thread.objects.filter(conversationId=convId).exists():
-            new_thread.save()
+        if not Thread.objects.filter(conversationId=convId,user=request.user).exists():
+            if  not DeletedThread.objects.filter(conversationId=convId,user=request.user).exists():
+                new_thread.save()
 
     return redirect("/dashboard")
 
@@ -71,7 +73,7 @@ def addbyurl(response):
             thread_author_banner=profile_banner,
             thread_tweets=twitter_thread
             )
-        if not Thread.objects.filter(conversationId=convId).exists():
+        if not Thread.objects.filter(conversationId=convId).exists():   
             new_thread.save()
 
     return redirect("/dashboard")
@@ -81,6 +83,8 @@ def deletethread(response):
     if response.method == "POST":
         convId = response.POST['convoId']
     thread = Thread.objects.get(conversationId=convId,user=response.user)
+    deletedThread = DeletedThread(user=response.user,conversationId=thread.conversationId)
+    deletedThread.save()
     thread.delete()
 
     return redirect("/dashboard")

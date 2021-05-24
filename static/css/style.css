@@ -4,13 +4,6 @@
   box-sizing: border-box;
   font-family: Roboto;
 }
-<<<<<<< HEAD
-/* @font-face {
-    font-family: Roboto;
-    src: url("./fonts/Roboto/Roboto-Regular.ttf");
-} */
-=======
->>>>>>> hosting
 .button {
   background-color: white;
   border: 2px solid #1da1f2;
@@ -36,47 +29,23 @@
   border: 2px solid #1da1f2;
   color: #1da1f2;
   font-weight: 700;
-<<<<<<< HEAD
-  /* text-decoration: underline; */
-=======
  
->>>>>>> hosting
 }
 
 .nav-ul {
   display: flex;
   justify-content: flex-end;
-<<<<<<< HEAD
-  /* border: 1px solid black; */
-  padding: 0px;
-}
-.nav-li {
-  flex-basis: 110px;
-  /* border: 1px solid black; */
-  margin: 0 25px;
-=======
    padding: 0px;
 }
 .nav-li {
   flex-basis: 110px;
    margin: 0 25px;
->>>>>>> hosting
 }
 nav {
   margin: 0px 7%;
 }
-<<<<<<< HEAD
-.nav-button {
-  /* margin: 0px 25px; */
-}
-
-.main-div {
-  /* border: 1px solid black; */
-  width: 100%;
-=======
 .main-div {
    width: 100%;
->>>>>>> hosting
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,11 +82,7 @@ main {
   color: #1da1f2;
   font-weight: 500;
   font-size: 50px;
-<<<<<<< HEAD
-}
-=======
  }
->>>>>>> hosting
 .alt-link a {
   color: #1da1f2;
   font-weight: 500;
@@ -134,12 +99,7 @@ footer {
 .footer-container {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  /* border: 1px solid black; */
-}
-=======
  }
->>>>>>> hosting
 .footer-img {
   height: auto;
   width: 50px;
@@ -186,17 +146,6 @@ input:focus {
   border-color: #1da1f2;
   outline: none;
 }
-<<<<<<< HEAD
-/* .main-form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-=======
->>>>>>> hosting
 .form-elements {
   display: flex;
   justify-content: center;
@@ -240,14 +189,7 @@ input:focus {
     align-items: center;
   }
   .form-elements {
-<<<<<<< HEAD
-    /* width: 0px;
-    flex-basis: 400px;
-    flex-grow: 1; */
-    /* border: 1px solid blue; */
-=======
 
->>>>>>> hosting
     width: 95%;
     display: flex;
     justify-content: center;

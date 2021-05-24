@@ -34,7 +34,7 @@ def get_thread_author_only(conversation_id):
     url = urls.create_id(conversation_id)
     thread_original_tweet = connect_to_endpoint(url, headers)
     author_id = thread_original_tweet['data']['author_id']
-    print(author_id)
+    # print(author_id)
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
     

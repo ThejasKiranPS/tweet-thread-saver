@@ -37,7 +37,7 @@ Once you have activated your virtual environment clone the respository
 ```bash
 git clone https://github.com/ThejasKiranPS/tweet-thread-saver.git
 cd tweet-thread-saver
-git checkout deploy
+git checkout main
 ```
 
 Once you are in the tweet-thread-saver folder you will need to install all the required dependencies

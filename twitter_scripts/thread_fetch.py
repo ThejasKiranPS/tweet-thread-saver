@@ -65,10 +65,11 @@ def get_thread_author_only(conversation_id):
 
 def process(thread_convo, thread_original_tweet, thread_author):
     userData={}
-    conversation_id= thread_original_tweet['data']['id']
+    conversation_id= thread_original_tweet['data']['id']    
  
     tweet=[]
     tweet.append(thread_original_tweet['data']['text'])
+    print(thread_convo)
     thread_convo['data'].reverse()
     i=0
     author_id = thread_original_tweet['data']['author_id']
@@ -112,4 +113,4 @@ def addByUrl(url):
     return [get_thread_author_only(urlSplit[1])]
 
 if __name__ == "__main__":
-    main()
+    main("thejaskiranps")

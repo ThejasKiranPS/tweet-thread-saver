@@ -20,11 +20,9 @@ function undochangeTo(id) {
     document.getElementById(id).innerText=UNAME;
 }
 //send req to django
-function sendReq(){
-    console.log('test');
-    let form = document.getElementById("request-form");
-    form.convoId.value = conversationId;
-    console.log('te');
+function sendReq(convId, formId="request-form"){
+    let form = document.getElementById(formId);
+    form.convoId.value = convId;
     form.submit();
 }
 
@@ -69,7 +67,11 @@ function copyE(str){
 
 function getInput() {
     let url = window.prompt('Enter the full tweet url');
-    url = url.split("status/")[1];
+    if (url.includes('status/')==false) {
+       alert('Enter the full url');
+       return; 
+    }
+    sendReq(url);
 }
 
 //download
@@ -96,3 +98,13 @@ function processTweet() {
     filename='tweet_'+tUserName;
     return processedTweet;
 }
+function deleteT() {
+    let convoId=selected.getAttribute('convoId');
+    sendReq(convoId,'delete-thread');  
+    }
+function listen(e) {
+    if (e.key===Delete) {
+        deleteT();
+        }
+}
+    document.onkeypress=listen;

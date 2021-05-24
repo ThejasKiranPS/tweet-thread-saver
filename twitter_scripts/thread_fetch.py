@@ -2,7 +2,7 @@ import requests
 import json
 from twitter_scripts import secrets
 from twitter_scripts import urls
-# from twitter_scripts import Write
+from twitter_scripts import Write
 from twitter_scripts import fetch_mention
 #import secrets
 #import urls
@@ -69,17 +69,19 @@ def process(thread_convo, thread_original_tweet, thread_author):
  
     tweet=[]
     tweet.append(thread_original_tweet['data']['text'])
-    # print(thread_convo)
-    thread_convo['data'].reverse()
-    i=0
-    author_id = thread_original_tweet['data']['author_id']
+    #print(thread_original_tweet)
+    if 'data' in thread_convo.keys():
+        #print(thread_convo)
+        thread_convo['data'].reverse()
+        i=0
+        author_id = thread_original_tweet['data']['author_id']
 
-    for t in thread_convo['data']:
-        if author_id != t['author_id']:
-            break 
-        if mId in t['text']:
-            break
-        tweet.append(t['text'])
+        for t in thread_convo['data']:
+            if author_id != t['author_id']:
+                break 
+            if mId in t['text']:
+                break
+            tweet.append(t['text'])
     
     userData={
             'thread_author':thread_author['data']['name'],

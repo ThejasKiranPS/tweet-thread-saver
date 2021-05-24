@@ -38,11 +38,11 @@ def get_thread_author_only(conversation_id):
     url = urls.create_username(author_id)
     thread_author = connect_to_endpoint(url,headers)
     
-    Write.write_author_only(thread_convo,thread_original_tweet,thread_author) 
+    # Write.write_author_only(thread_convo,thread_original_tweet,thread_author) 
 
 def last_mentioned_ids(authorUserName):
     #CHANGE THE MENTION ID HERE
-    mId='amalpaultech'
+    mId='threadsaverbfh'
 
     #CHANGE NO OF TWEETS TO FETCH HERE
     limit=3

@@ -7,7 +7,7 @@ from django.forms import fields
 
 class RegisterForm(UserCreationForm):
 	email = forms.EmailField()
-	twitterid = forms.TextInput()
+	
 	
 	class Meta:
 		model = User

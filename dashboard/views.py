@@ -20,6 +20,7 @@ def dashboard(request):
 def refresh(request):
     print(f"refresh called by {request.user.username}")
     threads=thread_fetch.main(request.user.username)
+    threads.reverse()
     for thread in threads:
         convId = thread['conversation_id']
         author = thread['thread_author']
@@ -40,7 +41,7 @@ def refresh(request):
         if not Thread.objects.filter(conversationId=convId,user=request.user).exists():
             if  not DeletedThread.objects.filter(conversationId=convId,user=request.user).exists():
                 new_thread.save()
-
+                # pass
     return redirect("/dashboard")
 
 

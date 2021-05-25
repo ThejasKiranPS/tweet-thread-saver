@@ -1,9 +1,9 @@
 import requests
 import json
 
-from twitter_scripts import secrets
 from twitter_scripts import urls
 from twitter_scripts import Write
+from twitter_scripts import secrets
 
 #import secrets
 #import urls
@@ -61,6 +61,8 @@ def last_mentioned_ids(authorUserName):
             break
         if mId in tweet['text']:
             i+=1
+            if tweet['conversation_id'] in conversation_ids:
+                continue
             conversation_ids.append(tweet['conversation_id'])
     return conversation_ids
 

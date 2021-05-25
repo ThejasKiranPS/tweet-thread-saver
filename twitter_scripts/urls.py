@@ -26,17 +26,16 @@ def create_author(author):
 
 def create_convo(convo_id):
     query =f"conversation_id:{convo_id}"
-    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,attachments,in_reply_to_user_id"
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,in_reply_to_user_id"
+    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}&max_results=99".format(
         query, tweet_fields
     )
     return url
 
 def create_id(id):
-    query=f"from:{id}"
     tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
     
-    url = "https://api.twitter.com/2/tweets/{}?tweet.fields=author_id".format(id)
+    url = "https://api.twitter.com/2/tweets/{}?tweet.fields=conversation_id,author_id".format(id)
     return url
 
 

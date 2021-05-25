@@ -24,6 +24,8 @@ def refresh(request):
     for items in DeletedThread.objects.filter(user=request.user):
         convList.append(items.conversationId)
     threads=thread_fetch.main(request.user.username,convList)
+    if threads == []:
+        return redirect("/dashboard")
     threads.reverse()
     for thread in threads:
         convId = thread['conversation_id']

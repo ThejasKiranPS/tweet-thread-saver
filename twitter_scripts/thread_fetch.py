@@ -72,7 +72,6 @@ def process(thread_convo, thread_original_tweet, thread_author):
     #print(thread_original_tweet)
     if 'data' in thread_convo.keys():
         #print(thread_convo)
-        thread_convo['data'].reverse()
         i=0
         author_id = thread_original_tweet['data']['author_id']
 

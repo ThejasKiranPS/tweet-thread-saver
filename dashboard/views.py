@@ -13,6 +13,7 @@ def dashboard(request):
     else:
         print(request.user.username + " Logged in")
         threads = Thread.objects.filter(user=request.user)
+        threads = threads.order_by("-id")
         return render(request=request, template_name="dashboard.html", context={'threads': threads, "username":request.user.username })
 
 

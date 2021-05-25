@@ -14,7 +14,6 @@ mId='threadsaverbfh'
 def auth():
     return secrets.bearer_key
 
-
 def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
@@ -26,7 +25,6 @@ def connect_to_endpoint(url, headers):
         raise Exception(response.status_code, response.text)
     return response.json()
 
-    
     userData={
             'thread_author':thread_author['data']['name'],
             'thread_author_username':'@'+thread_author['data']['username'],
@@ -36,11 +34,16 @@ def connect_to_endpoint(url, headers):
     # print(userData)
     return userData
 
-
-def get_threads(twitterUserName):
+def get_threads(twitterUserName,DBList):
     ids = fetch_mention.last_mentioned_ids(twitterUserName)
+    filterDuplicates(ids,DBList)
     userData=get_tweets(ids)
     return userData
+
+def filterDuplicates(newList, DBList):
+       for i in newList:
+           if i in DBList:
+               newList.remove(i) 
 
 def create_ids(ids):
     tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
@@ -49,15 +52,12 @@ def create_ids(ids):
     for i in ids:
         idString+=f"{i},"
     idFiltered= idString[:-1]
-    print(idFiltered)
     url = "https://api.twitter.com/2/tweets?ids={}&tweet.fields=author_id,text,id".format(idFiltered)
     return url
-
 
 def get_tweets(conversation_ids):
     bearer_token = auth()
     headers = create_headers(bearer_token)
-
 
     url = create_ids(conversation_ids)
     tweets = connect_to_endpoint(url, headers)
@@ -77,15 +77,14 @@ def get_tweets(conversation_ids):
 
 
 #pass twitterUserName in main
-def main(twitterUserName):
-    data = get_threads(twitterUserName)
+def main(twitterUserName,DBList=[]):
+    data = get_threads(twitterUserName,DBList)
     return data
 
 def myPrint(tweets):
     file=open('./output/tweets.txt','w')
     for tweet in tweets:
         file.write(f"{tweet['thread_author']} -- {tweet['thread_author_username']} \n  {tweet['text']}\n\n \n")
-
 
 def addByUrl(url):
     urlSplit=url.split('status/') 
@@ -106,4 +105,3 @@ def getaddOnTweets(convId, authorId):
 
 if __name__ == "__main__":
     main("thejaskiranps")
-

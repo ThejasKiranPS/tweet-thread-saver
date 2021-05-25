@@ -41,7 +41,6 @@ def refresh(request):
         if not Thread.objects.filter(conversationId=convId,user=request.user).exists():
             if  not DeletedThread.objects.filter(conversationId=convId,user=request.user).exists():
                 new_thread.save()
-                # pass
     return redirect("/dashboard")
 
 

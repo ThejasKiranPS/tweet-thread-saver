@@ -32,9 +32,10 @@ def get_threads(twitterUserName,DBList):
 
 #remove tweets already existing in the database
 def filterDuplicates(newList, DBList):
-       for i in newList:
-           if i in DBList:
-               newList.remove(i) 
+    list=newList.copy()
+    for i in list:
+        if i in DBList:
+            newList.remove(i)
 
 #takes list of tweet_id and makes url for request
 def create_ids(ids):

@@ -1,3 +1,4 @@
+from typing import ItemsView
 from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
@@ -11,15 +12,20 @@ def dashboard(request):
     if request.user.username == '':
         return redirect('/user_login')
     else:
-        print(request.user.username + " Logged in")
         threads = Thread.objects.filter(user=request.user)
         threads = threads.order_by("-id")
         return render(request=request, template_name="dashboard.html", context={'threads': threads, "username":request.user.username })
 
 
 def refresh(request):
-    print(f"refresh called by {request.user.username}")
-    threads=thread_fetch.main(request.user.username)
+    convList = []
+    for items in Thread.objects.filter(user=request.user):
+        convList.append(items.conversationId)
+    for items in DeletedThread.objects.filter(user=request.user):
+        convList.append(items.conversationId)
+    threads=thread_fetch.main(request.user.username,convList)
+    if threads == []:
+        return redirect("/dashboard")
     threads.reverse()
     for thread in threads:
         convId = thread['conversation_id']

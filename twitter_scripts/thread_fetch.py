@@ -26,62 +26,6 @@ def connect_to_endpoint(url, headers):
         raise Exception(response.status_code, response.text)
     return response.json()
 
-def get_thread(conversation_id):
-    bearer_token = auth()
-    headers = create_headers(bearer_token)
-
-    url = urls.create_convo(conversation_id)
-    thread_convo = connect_to_endpoint(url, headers)
-
-    url = urls.create_id(conversation_id)
-    thread_original_tweet = connect_to_endpoint(url, headers)
-
-    author_id = thread_original_tweet['data']['author_id']
-    # print(auth)
-    url = urls.create_username(author_id)
-    thread_author = connect_to_endpoint(url,headers)
-
-    # Write.write(thread_convo, thread_original_tweet,thread_author)
-
-def get_thread_author_only(conversation_id):
-    bearer_token = auth()
-    headers = create_headers(bearer_token)
-
-    url = urls.create_convo(conversation_id)
-    thread_convo = connect_to_endpoint(url, headers)
-
-    url = urls.create_id(conversation_id)
-    thread_original_tweet = connect_to_endpoint(url, headers)
-
-    author_id = thread_original_tweet['data']['author_id']
-    #print(author_id)
-    url = urls.create_username(author_id)
-    thread_author = connect_to_endpoint(url,headers)
-
-    #Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
-    #print(f"{thread_original_tweet}\n {thread_convo}")
-    return process(thread_convo, thread_original_tweet, thread_author)
-    
-
-def process(thread_convo, thread_original_tweet, thread_author):
-    userData={}
-    conversation_id= thread_original_tweet['data']['id']    
- 
-    tweet=[]
-    tweet.append(thread_original_tweet['data']['text'])
-    #print(thread_original_tweet)
-    if 'data' in thread_convo.keys():
-        thread_convo['data'].reverse()
-        #print(thread_convo)
-        i=0
-        author_id = thread_original_tweet['data']['author_id']
-
-        for t in thread_convo['data']:
-            if author_id != t['author_id']:
-                break 
-            if mId in t['text']:
-                break
-            tweet.append(t['text'])
     
     userData={
             'thread_author':thread_author['data']['name'],
@@ -95,24 +39,71 @@ def process(thread_convo, thread_original_tweet, thread_author):
 
 def get_threads(twitterUserName):
     ids = fetch_mention.last_mentioned_ids(twitterUserName)
-    userData=[]
-    for id in ids:
-        userData.append(get_thread_author_only(id))
-    # print(userData)
+    userData=get_tweets(ids)
     return userData
-        
+
+def create_ids(ids):
+    tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
+    idString=''
+
+    for i in ids:
+        idString+=f"{i},"
+    idFiltered= idString[:-1]
+    print(idFiltered)
+    url = "https://api.twitter.com/2/tweets?ids={}&tweet.fields=author_id,text,id".format(idFiltered)
+    return url
+
+
+def get_tweets(conversation_ids):
+    bearer_token = auth()
+    headers = create_headers(bearer_token)
+
+
+    url = create_ids(conversation_ids)
+    tweets = connect_to_endpoint(url, headers)
+    for i in tweets['data']:
+        author_id = i['author_id']
+        url = urls.create_username(author_id)
+        thread_author = connect_to_endpoint(url,headers)
+        i['thread_author']=thread_author['data']['name']
+        i['thread_author_username']=thread_author['data']['username']
+        i['text']+= getaddOnTweets(i['id'],i['author_id'])
+        i['thread_tweets']=[i['text']]
+        i['conversation_id']= i['id']
+
+    # Write.write_author_only(thread_convo, thread_original_tweet, thread_author)
+    return tweets['data']
+
+
 
 #pass twitterUserName in main
 def main(twitterUserName):
     data = get_threads(twitterUserName)
-    # print(data)
     return data
-    #get_thread_author_only(conversation_ids)
+
+def myPrint(tweets):
+    file=open('./output/tweets.txt','w')
+    for tweet in tweets:
+        file.write(f"{tweet['thread_author']} -- {tweet['thread_author_username']} \n  {tweet['text']}\n\n \n")
 
 
 def addByUrl(url):
     urlSplit=url.split('status/') 
-    return [get_thread_author_only(urlSplit[1])]
+    return get_tweets([urlSplit[1]])
+
+def getaddOnTweets(convId, authorId):
+    url = urls.create_convo(convId)
+    bearer_token = auth()
+    headers = create_headers(bearer_token)
+    thread_convo = connect_to_endpoint(url, headers)
+    author_convo =''
+    if 'data' in thread_convo.keys():
+        for reply in thread_convo['data']:
+            if reply['in_reply_to_user_id'] == authorId and reply['author_id']==authorId:
+                author_convo+=f" {reply['text']}"
+    return author_convo
+
 
 if __name__ == "__main__":
     main("thejaskiranps")
+

@@ -27,7 +27,10 @@ def get_threads(twitterUserName,DBList):
     #gets the list of ids of tweets on which user mentioned the bot
     ids = fetch_mention.last_mentioned_ids(twitterUserName)
     filterDuplicates(ids,DBList)
+    if ids==[]:
+        return []
     userData=get_tweets(ids)
+
     return userData
 
 #remove tweets already existing in the database
@@ -54,6 +57,8 @@ def get_tweets(conversation_ids):
 
     url = create_ids(conversation_ids)
     tweets = connect_to_endpoint(url, headers)
+    if 'data' not in tweets.keys():
+        return []
     for i in tweets['data']:
         author_id = i['author_id']
         url = urls.create_username(author_id)

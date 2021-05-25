@@ -9,8 +9,6 @@ from twitter_scripts import fetch_mention
 #import Write
 #import fetch_mention
 
-mId='threadsaverbfh'
-
 def auth():
     return secrets.bearer_key
 
@@ -18,33 +16,28 @@ def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
+#API request
 def connect_to_endpoint(url, headers):
     response = requests.request("GET", url, headers=headers)
-    # print(response.status_code)
     if response.status_code != 200:
         raise Exception(response.status_code, response.text)
     return response.json()
 
-    userData={
-            'thread_author':thread_author['data']['name'],
-            'thread_author_username':'@'+thread_author['data']['username'],
-            'thread_tweets':tweet,
-            'conversation_id': conversation_id,
-            }
-    # print(userData)
-    return userData
-
 def get_threads(twitterUserName,DBList):
+    #gets the list of ids of tweets on which user mentioned the bot
     ids = fetch_mention.last_mentioned_ids(twitterUserName)
     filterDuplicates(ids,DBList)
     userData=get_tweets(ids)
     return userData
 
+#remove tweets already existing in the database
 def filterDuplicates(newList, DBList):
-       for i in newList:
-           if i in DBList:
-               newList.remove(i) 
+    list=newList.copy()
+    for i in list:
+        if i in DBList:
+            newList.remove(i)
 
+#takes list of tweet_id and makes url for request
 def create_ids(ids):
     tweet_fields = "tweet.fields=author_id,conversation_id,text,id,created_at,attachments,in_reply_to_user_id"
     idString=''
@@ -76,20 +69,23 @@ def get_tweets(conversation_ids):
 
 
 
-#pass twitterUserName in main
+#pass twitterUserName & list of tweet_id already existing in database
 def main(twitterUserName,DBList=[]):
     data = get_threads(twitterUserName,DBList)
     return data
 
+#fn to save final output
 def myPrint(tweets):
     file=open('./output/tweets.txt','w')
     for tweet in tweets:
         file.write(f"{tweet['thread_author']} -- {tweet['thread_author_username']} \n  {tweet['text']}\n\n \n")
 
+#returns tweet from a url
 def addByUrl(url):
     urlSplit=url.split('status/') 
     return get_tweets([urlSplit[1]])
 
+#gets tweets by the author who may have replied to himself due to the 255 char limit
 def getaddOnTweets(convId, authorId):
     url = urls.create_convo(convId)
     bearer_token = auth()

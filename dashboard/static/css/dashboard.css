@@ -298,12 +298,12 @@ input:focus {
 @media only screen and (max-width: 1000px) {
   .sticky-left {
     position: fixed;
-    top: 30%;
+    top: 20%;
     left: 3%;
   }
   .sticky-right {
     position: fixed;
-    top: 30%;
+    top: 20%;
     right: 3%;
   }
 }
@@ -315,12 +315,7 @@ input:focus {
     right:2%;
   }
 }
-@media only screen and (max-width: 970px) {
-  .main-left {
-    display: none;
-  }
- 
-}
+
 @media only screen and (min-width: 1500px) {
   .sticky-left {
     position: fixed;
@@ -376,4 +371,14 @@ input:focus {
 .main-element-text p {
   margin:0;
   margin-top:10px;
+}
+@media only screen and (max-width: 970px) {
+  .main-left {
+    display: none;
+  }
+  .wider{
+    width:45px;
+    border-radius:50%;
+  }
+ 
 }

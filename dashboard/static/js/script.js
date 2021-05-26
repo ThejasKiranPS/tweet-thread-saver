@@ -26,8 +26,6 @@ function sendReq(convId, formId="request-form"){
     form.submit();
 }
 
-
-
 //click effects
 function tweetClicked() {
     element = this;

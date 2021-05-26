@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %} 
-    <div id="error-messages">
-{% for errors in error_message %}
-                <p>{{ errors }}</p>
-        {% endfor %}
-    </div>
     <main>
       <div class="main-div">
+   <div class="error-message" id="error-message">
+{% for errors in error_message %}
+                {{ errors }}                
+        {% endfor %}
+    </div>
         <form class="main-form" method="POST" >
           {% csrf_token %}
           <div class="form-elements">
@@ -34,6 +34,7 @@
           <div class="form-elements">
             <input
               name="password1"
+              id="password1"
               type="password"
               placeholder=" password"
               class="input-field"
@@ -44,6 +45,7 @@
           <div class="form-elements">
             <input
               name="password2"
+              id="password2"
               type="password"
               autocomplete="new-password" 
               required=""   
@@ -54,6 +56,7 @@
           <button
             class="button button-active main-button input-button"
             type="submit"
+            onclick="checkpass()"
           >
             Sign up
           </button>
@@ -64,5 +67,13 @@
         </div>
       </div>
     </main>
+<script>
+function checkpass() {
+    if(document.getElementById('password1').innerText != document.getElementById('password2')) {
+        element = document.getElementById('error-message');
+        element.innerText="Passwords does not match";
+    }
+}
+</script>
 
 {% endblock %}

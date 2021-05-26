@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %} 
-
+    <div id="error-messages">
+{% for errors in error_message %}
+                <p>{{ errors }}</p>
+        {% endfor %}
+    </div>
     <main>
       <div class="main-div">
         <form class="main-form" method="POST" >

@@ -1,22 +1,38 @@
 from loginapp import urls
 from django.http.response import HttpResponse
-from django.shortcuts import  render, redirect
+from django.shortcuts import render, redirect
 from .forms import RegisterForm
-from django.contrib.auth.models import User
+from twitter_scripts import profile_fetch
+
 
 def home(request):
-	return render(request=request, template_name="homepage.html")
+    return render(request=request, template_name="homepage.html")
+
 
 def register(response):
-	if response.method == "POST":
-		form = RegisterForm(response.POST)
-		if form.is_valid():
-			form.save()
-		
-		return redirect("/dashboard")
-	else:
-		form = RegisterForm()
-	return render(response,"register.html", {"form":form})
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
+        if not profile_fetch.get_profile(response.POST['username']):
+            # form = RegisterForm(response.POST)
+            error_message = [
+                f"Twitter username {response.POST['username']} doesn't exist"]
+            error_message.append("Please user your existing twiter ID")
+            print(error_message)
+            return render(response, 'register.html', {'error_message': error_message})
+
+        else:
+            if form.is_valid():
+                error_message = [
+                    f"Twitter {response.POST['username']} doesn't exist"]
+                form.save()
+                return redirect("/dashboard")
+
+            else:
+                form = RegisterForm()
+                print("No Response")
+
+    return render(response, "register.html", {"form": form})
+
 
 def logout(response):
-    	render(template_name="logout.html")
+    render("logout.html")

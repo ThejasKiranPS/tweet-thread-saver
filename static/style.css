@@ -223,3 +223,9 @@ input:focus {
     max-width: 350px;
   }
 }
+.no-display {
+  display: none;
+}
+.error-message{
+  color:tomato;
+}

@@ -31,7 +31,7 @@ def register(response):
                 form = RegisterForm()
                 print("No Response")
 
-    return render(response, "register.html", {"form": form})
+    return render(response, "register.html")
 
 
 def logout(response):

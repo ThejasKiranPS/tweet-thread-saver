@@ -372,6 +372,12 @@ input:focus {
   margin:0;
   margin-top:10px;
 }
+@keyframes expand-btn {
+  from {width:45px;}
+  to {width:100px;
+      border-radius:16px;    
+  }
+}
 @media only screen and (max-width: 970px) {
   .main-left {
     display: none;
@@ -379,6 +385,10 @@ input:focus {
   .wider{
     width:45px;
     border-radius:50%;
+    animation-fill-mode: forwards;
   }
- 
+  .wider:hover{
+    animation-name:expand-btn; ;
+    animation-duration:0.5s;
+  }
 }

@@ -31,11 +31,11 @@ BFH/recWiN3KIjwN7UmOy/2021
 - click add button
 - paste the complete url of tweet you wish to save in the popup which appears when did the previous action and click ok
 
-### Downloading tweets
+### Downloading tweets (.txt)
 
 - Select any tweet by clicking on it and click download button
 
-### Deleting tweets (.txt)
+### Deleting tweets 
 
 - Select any tweet and press Delete button on your keyboard
 

@@ -15,10 +15,6 @@ or by copying the url of tweet and adding it in the site. (http://bit.ly/threads
 
 BFH/recWiN3KIjwN7UmOy/2021
 
-## Link to product walkthrough
-
-[link to video](https://www.loom.com/share/13c955f85a4d47b4bdf70c3e3da0f3ce?sharedAppSource=personal_library)
-
 ## How it Works ?
 
 (Register with your correct **twitter** username)
